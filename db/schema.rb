@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_100057) do
     t.string "name"
     t.string "description"
     t.string "country"
+    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
