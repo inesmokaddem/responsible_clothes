@@ -1,4 +1,4 @@
-<div class="container">
+<div class="test">
   <div class="product_picture">
     <p>PRODUCT PICTURE</p>
     <div class="dressing_btn">
@@ -19,7 +19,7 @@
             <div class="col-2 arrow">
               <i class="fas fa-angle-down"></i>
             </div>
-            <div class="col-10">
+            <div class="col-8">
               <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     Water footprint
@@ -27,12 +27,16 @@
                 <i class="fas fa-tint"></i>
               </div>
             </div>
+            <div class="col-2 circle">
+              <div id="moncercle"></div>
+            </div>
           </div>
         </button>
 
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="card-body">
             Here we can read more about Water footprint
+            <p>Water footprint: <%= @product.water_footprint %></p>
           </div>
         </div>
       </div>
@@ -42,7 +46,7 @@
             <div class="col-2 arrow">
               <i class="fas fa-angle-down"></i>
             </div>
-            <div class="col-10">
+            <div class="col-8">
               <div class="card-header" id="headingTwo">
                 <h5 class="mb-0">
                     Carbon footprint
@@ -50,11 +54,15 @@
                 <i class="fas fa-plane"></i>
               </div>
             </div>
+            <div class="col-2 circle">
+              <div id="moncercle"></div>
+            </div>
           </div>
         </button>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
           <div class="card-body">
             Here we can read more about Carbon footprint
+            <p>Carbon Footprin: <%= @product.carbon_footprint %></p>
           </div>
         </div>
       </div>
@@ -69,13 +77,16 @@
             <div class="col-2 arrow">
               <i class="fas fa-angle-down"></i>
             </div>
-            <div class="col-10">
+            <div class="col-8">
               <div class="card-header" id="headingThree">
                 <h5 class="mb-0">
                   Labour conditions
                 </h5>
                 <i class="fas fa-flushed"></i>
               </div>
+            </div>
+            <div class="col-2 circle">
+              <div id="moncercle"></div>
             </div>
           </div>
         </button>
@@ -91,13 +102,16 @@
             <div class="col-2 arrow">
               <i class="fas fa-angle-down"></i>
             </div>
-            <div class="col-10">
+            <div class="col-8">
               <div class="card-header" id="headingFour">
                 <h5 class="mb-0">
                     Transparency
                 </h5>
                 <i class="fas fa-balance-scale"></i>
               </div>
+            </div>
+            <div class="col-2 circle">
+              <div id="moncercle"></div>
             </div>
           </div>
         </button>

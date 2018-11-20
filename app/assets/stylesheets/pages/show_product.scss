@@ -3,6 +3,9 @@
     color: red;
   }
 }
+.description_product {
+  padding: 20px;
+}
 .eco_rating {
   h3 {
     text-align: center;
@@ -17,6 +20,17 @@
     .arrow {
       color: #fff;
       font-size: 40px;
+    }
+    #moncercle {
+      background:#c00;
+      border-radius:50%;
+      width:25px;
+      height:25px;
+      border:2px solid #c00;
+    }
+    .circle {
+      display: flex;
+      align-items: center;
     }
     .card-header {
       background: transparent;
@@ -41,10 +55,25 @@
     }
   }
   .card {
+    .arrow {
+      color: #fff;
+      font-size: 40px;
+    }
+    .circle {
+      display: flex;
+      align-items: center;
+    }
     .card-header {
       background: transparent;
       color: #fff;
       border-bottom: none;
+    }
+    #moncercle {
+      background:#c00;
+      border-radius:50%;
+      width:25px;
+      height:25px;
+      border:2px solid #c00;
     }
   }
 }
