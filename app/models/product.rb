@@ -3,9 +3,9 @@ class Product < ApplicationRecord
   belongs_to :brand
   has_many :favorites
   CATEGORY = {
-    women: [],
-    men: [],
-    child: []
+    women: ['Dress', 'T-shirt', 'Shirt/Blouse', 'Blazer', 'Sweatshirt', 'Sweater', 'Jacket', 'Trouser', 'Jumpsuit', 'Skirt', 'Shoes', 'Short', 'Swimwear', 'Lingerie', 'Socks', 'Pijama', 'Coat', 'Gloves'],
+    men: ['Sweatshirt', 'Shirt', 'Trouser', 'Sweater', 'Jacket', 'T-shirt', 'Blazer', 'Shoes', 'Underwear', 'Short', 'Swimwear', 'Socks', 'Gloves', 'Pijama'],
+    child: ['Dress', 'T-shirt', 'Shirt', 'Jacket', 'Socks', 'Swimwear', 'Short', 'Shoes', 'Sweater', 'Sweatshirt', 'Blazer', 'Body', 'Coat', 'Gloves', 'Trouser', 'Jumpsuit', 'Legging', 'Pijama', 'Skirt']
   }
 
   validates :name, presence: true
