@@ -1,0 +1,8 @@
+<%= simple_form_for [@product] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :gender %>
+  <%= f.association :category, collection:  %>
+  <%= f.input :water_footprint %>
+  <%= f.input :carbon_footprint %>
+
