@@ -1,0 +1,50 @@
+.product_picture {
+  p {
+    color: red;
+  }
+}
+.eco_rating {
+  h3 {
+    text-align: center;
+  }
+  .btn-link {
+    background:#C9D8C5;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .card.water_footprint, .card.carbon_footprint {
+    .arrow {
+      color: #fff;
+      font-size: 40px;
+    }
+    .card-header {
+      background: transparent;
+      color: #fff;
+      border-bottom: none;
+    }
+  }
+  .card.carbon_footprint {
+  }
+  .btn-link:hover {
+    text-decoration: none;
+  }
+}
+.social_rating {
+  h3 {
+    text-align: center;
+  }
+  .btn-link {
+    background:#C9D8C5;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .card {
+    .card-header {
+      background: transparent;
+      color: #fff;
+      border-bottom: none;
+    }
+  }
+}
