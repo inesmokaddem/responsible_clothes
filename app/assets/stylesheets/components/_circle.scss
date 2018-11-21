@@ -1,0 +1,13 @@
+$circle-size: 25px;
+
+.circle {
+  border-radius: 50%;
+  width: $circle-size;
+  height: $circle-size;
+}
+
+@each $color, $value in $theme-colors {
+  .circle-#{$color} {
+    background: $value;
+  }
+}
