@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_100057) do
+ActiveRecord::Schema.define(version: 2018_11_21_103526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 2018_11_20_100057) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "product_id"
@@ -33,10 +39,15 @@ ActiveRecord::Schema.define(version: 2018_11_20_100057) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "category"
     t.integer "water_footprint"
     t.integer "carbon_footprint"
     t.integer "social_rating"
@@ -45,7 +56,11 @@ ActiveRecord::Schema.define(version: 2018_11_20_100057) do
     t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.bigint "gender_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["gender_id"], name: "index_products_on_gender_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,4 +78,6 @@ ActiveRecord::Schema.define(version: 2018_11_20_100057) do
   add_foreign_key "favorites", "products"
   add_foreign_key "favorites", "users"
   add_foreign_key "products", "brands"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "genders"
 end
