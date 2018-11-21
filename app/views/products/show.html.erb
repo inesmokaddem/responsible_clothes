@@ -1,10 +1,12 @@
 <div class="test">
   <div class="product_picture">
-    <div class="col-8">
+    <div class="col-10">
       <i class="fas fa-angle-left back_arrow"></i>
     </div>
-    <div class="col-4 dressing_btn">
-      <button type="button" name="button"><i class="fas fa-plus"></i>Add to my dressing</button>
+    <div class="col-2 dressing_btn">
+      <div class="bloc-btn">
+        <button type="button" name="button"><i class="fas fa-plus"></i></button>
+      </div>
     </div>
   </div>
   <div class="description_product">
@@ -29,8 +31,8 @@
                 <i class="fas fa-tint"></i>
               </div>
             </div>
-            <div class="col-2 circle">
-              <div id="moncercle"></div>
+            <div class="col-2">
+              <div class="circle circle-<%= @product.water_score  %>"></div>
             </div>
           </div>
         </button>

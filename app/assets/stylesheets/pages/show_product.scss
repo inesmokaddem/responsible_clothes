@@ -5,11 +5,22 @@
   display: flex;
   align-items: center;
   .dressing_btn {
-    color: #fff;
+    color: $white;
+    padding: 0;
+    .bloc-btn {
+      background: $orange;
+      border-radius: 30px;
+      width: 73%;
+      height: 45px;
+      i {
+        font-size: 39px;
+        color: #fff;
+      }
+    }
   }
   .back_arrow {
     font-size: 50px;
-    color: #fff;
+    color: $white;
   }
 }
 .description_product {
@@ -20,30 +31,19 @@
     text-align: center;
   }
   .btn-link {
-    background:#C9D8C5;
+    background:$orange;
     &:hover {
       text-decoration: none;
     }
   }
   .card.water_footprint, .card.carbon_footprint {
     .arrow {
-      color: #fff;
+      color: $white;
       font-size: 40px;
-    }
-    #moncercle {
-      background:#c00;
-      border-radius:50%;
-      width:25px;
-      height:25px;
-      border:2px solid #c00;
-    }
-    .circle {
-      display: flex;
-      align-items: center;
     }
     .card-header {
       background: transparent;
-      color: #fff;
+      color: $white;
       border-bottom: none;
     }
   }
@@ -58,14 +58,14 @@
     text-align: center;
   }
   .btn-link {
-    background:#C9D8C5;
+    background:$gray;
     &:hover {
       text-decoration: none;
     }
   }
   .card {
     .arrow {
-      color: #fff;
+      color: $white;
       font-size: 40px;
     }
     .circle {
@@ -74,7 +74,7 @@
     }
     .card-header {
       background: transparent;
-      color: #fff;
+      color: $white;
       border-bottom: none;
     }
     #moncercle {
