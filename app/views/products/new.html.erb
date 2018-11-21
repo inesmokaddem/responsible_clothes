@@ -1,15 +1,9 @@
 <div class="container">
-  <%= simple_form_for [@product] do |f| %>
+  <%= simple_form_for @product do |f| %>
     <%= f.input :name, placeholder: 'Jane Doe' %>
     <%= f.input :description, placeholder: 'Blue pant in cotton' %>
-    <%= f.input :gender, collection: Product.gender.keys %>
-    <% if :gender == 0 %>
-      <%= f.input :category, collection Product.category.women %>
-    <% elsif :gender == 1 %>
-      <%= f.input :category, collection Product.category.men %>
-    <% else %>
-      <%= f.input :category, collection Product.category.child %>
-    <% end %>
+    <%= f.association :gender, as: :radio_buttons %>
+    <%= f.association :category %>
     <%= f.association :brand %>
     <%= f.input :water_footprint %>
     <%= f.input :carbon_footprint %>
