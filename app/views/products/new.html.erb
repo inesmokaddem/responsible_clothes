@@ -1,9 +1,9 @@
 <div class="container">
-  <%= simple_form_for @product, wrapper: :horizontal_form do |f| %>
+  <%= simple_form_for @product do |f| %>
     <%= f.input :name, placeholder: 'Leather Jacket' %>
     <%= f.input :description, as: :text, placeholder: 'Blue pant in cotton', input_html: { maxlength: 150 } %>
     <%= f.association :gender, as: :radio_buttons, wrapper: :horizontal_collection_inline %>
-    <%= f.association :category, as: :select, prompt: "Choose a Category" %>
+    <%= f.association :category, prompt: "Choose a Category" %>
     <%= f.association :brand, prompt: "Choose a Brand" %>
     <%= f.input :water_footprint, placeholder: '7000 (Liters)' %>
     <%= f.input :carbon_footprint, placeholder: '5000 (Kilometers)' %>
