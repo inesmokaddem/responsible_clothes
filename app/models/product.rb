@@ -10,12 +10,22 @@ class Product < ApplicationRecord
 
   def water_score
     case water_footprint
-    when 1..2000
+    when 1..20000
       :success
-    when 2001..20000
+    when 20001..50000
       :info
-    when 20001..99999999999
+    when 50001..99999999999
       :danger
     end
+  end
+
+  def carbon_score
+    case carbon_footprint
+    when 1..2000
+      :success
+    when
+      :info
+    when
+      :danger
   end
 end
