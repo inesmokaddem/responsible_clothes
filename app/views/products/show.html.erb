@@ -14,114 +14,103 @@
     <h2><%= @product.brand.name %></h2>
     <p><%= @product.description %></p>
   </div>
-  <div class="eco_rating">
+  <div class="rating">
     <h3>Ecological rating 3/5</h3>
-    <div class="accordion" id="accordionExample">
-      <div class="card water_footprint">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          <div class="row">
-            <div class="col-2 arrow">
-              <i class="fas fa-angle-down"></i>
-            </div>
-            <div class="col-8">
-              <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    Water footprint
-                </h5>
-                <i class="fas fa-tint"></i>
-              </div>
-            </div>
-            <div class="col-2">
-              <div class="circle circle-<%= @product.water_score  %>"></div>
+    <div class="accordion" id="accordionFirst">
+
+      <div class="water_footprint">
+        <div class="collapse-header" data-toggle="collapse" data-target="#collapseOne">
+          <div>
+            <%= inline_svg("water_icon.svg", width: 32, class: "collapse-icon") %>
+            Water footprint
+          </div>
+          <div class="d-flex align-items-center">
+            <%= @product.water_footprint %> ℓ
+            <div class="mx-2 circle circle-<%= @product.water_score  %>"></div>
+            <div class="arrow_down">
+              <%= inline_svg "arrow-down.svg", width: 16, height: 8 %>
             </div>
           </div>
-        </button>
+        </div>
 
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-          <div class="card-body">
+        <div id="collapseOne" class="collapse">
+          <div class="collapse-body">
             Here we can read more about Water footprint
             <p>Water footprint: <%= @product.water_footprint %></p>
           </div>
         </div>
       </div>
-      <div class="card carbon_footprint">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <div class="row">
-            <div class="col-2 arrow">
-              <i class="fas fa-angle-down"></i>
-            </div>
-            <div class="col-8">
-              <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    Carbon footprint
-                </h5>
-                <i class="fas fa-plane"></i>
-              </div>
-            </div>
-            <div class="col-2 circle">
-              <div id="moncercle"></div>
+
+      <div class="carbon_footprint">
+        <div class="collapse-header" data-toggle="collapse" data-target="#collapseTwo">
+          <div>
+            <%= inline_svg("plane.svg", width: 32, class: "collapse-icon") %>
+            Carbon footprint
+          </div>
+          <div class="d-flex align-items-center">
+            <%= @product.carbon_footprint %> l
+            <div class="mx-2 circle circle-<%= @product.water_score  %>"></div>
+            <div class="arrow_down">
+              <%= inline_svg "arrow-down.svg", width: 16, height: 8 %>
             </div>
           </div>
-        </button>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="card-body">
+        </div>
+
+        <div id="collapseTwo" class="collapse">
+          <div class="collapse-body">
             Here we can read more about Carbon footprint
-            <p>Carbon Footprin: <%= @product.carbon_footprint %></p>
+            <p>Carbon footprint: <%= @product.carbon_footprint %></p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="social_rating">
+
+  <div class="mt-4 rating">
     <h3>Social rating 3/5</h3>
-    <div class="accordion" id="accordionExample">
-      <div class="card">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          <div class="row">
-            <div class="col-2 arrow">
-              <i class="fas fa-angle-down"></i>
-            </div>
-            <div class="col-8">
-              <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                  Labour conditions
-                </h5>
-                <i class="fas fa-globe"></i>
-              </div>
-            </div>
-            <div class="col-2 circle">
-              <div id="moncercle"></div>
+    <div class="accordion" id="accordionSecond">
+      <div class="labour_conditions">
+        <div class="collapse-header" data-toggle="collapse" data-target="#collapseThree">
+          <div>
+            <%= inline_svg("labour.svg", width: 32, class: "collapse-icon") %>
+            Labour conditions
+          </div>
+          <div class="d-flex align-items-center">
+            <%= @product.water_footprint %> l
+            <div class="mx-2 circle circle-<%= @product.water_score  %>"></div>
+            <div class="arrow_down">
+              <%= inline_svg "arrow-down.svg", width: 16, height: 8 %>
             </div>
           </div>
-        </button>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-          <div class="card-body">
-            Here we can read more about Labour conditions for the brand
+        </div>
+
+        <div id="collapseThree" class="collapse">
+          <div class="collapse-body">
+            Here we can read more about Labour conditions
+            <p>Labour conditions <%= @product.water_footprint %></p>
           </div>
         </div>
       </div>
-      <div class="card">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          <div class="row">
-            <div class="col-2 arrow">
-              <i class="fas fa-angle-down"></i>
-            </div>
-            <div class="col-8">
-              <div class="card-header" id="headingFour">
-                <h5 class="mb-0">
-                    Transparency
-                </h5>
-                <i class="fas fa-balance-scale"></i>
-              </div>
-            </div>
-            <div class="col-2 circle">
-              <div id="moncercle"></div>
+
+      <div class="transparency">
+        <div class="collapse-header" data-toggle="collapse" data-target="#collapseFour">
+          <div>
+            <%= inline_svg("transparency.svg", width: 32, class: "collapse-icon") %>
+            Transparency
+          </div>
+          <div class="d-flex align-items-center">
+            <%= @product.carbon_footprint %> l
+            <div class="mx-2 circle circle-<%= @product.water_score  %>"></div>
+            <div class="arrow_down">
+              <%= inline_svg "arrow-down.svg", width: 16, height: 8 %>
             </div>
           </div>
-        </button>
-        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-          <div class="card-body">
-            Here we can read more about Transparency of the brand
+        </div>
+
+        <div id="collapseFour" class="collapse">
+          <div class="collapse-body">
+            Here we can read more about Transparency
+            <p>Transparency: <%= @product.carbon_footprint %></p>
           </div>
         </div>
       </div>

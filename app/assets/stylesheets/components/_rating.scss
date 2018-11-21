@@ -1,0 +1,27 @@
+.rating {
+  h3 {
+    text-align: center;
+  }
+  .btn-link {
+    background:$orange;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .card {
+    .arrow {
+      color: $white;
+      font-size: 40px;
+    }
+    .card-header {
+      background: transparent;
+      color: $white;
+      border-bottom: none;
+    }
+  }
+  .card.carbon_footprint {
+  }
+  .btn-link:hover {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,21 @@
+.collapse-header {
+  outline: none !important;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: $white;
+  text-decoration: inherit;
+  padding: 10px;
+  border-bottom: 1px solid #80808029;
+}
+
+.collapse-body {
+  background: $white;
+  padding: 10px
+}
+
+.arrow_down {
+  margin-right: 10px;
+}

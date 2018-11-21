@@ -1,6 +1,7 @@
 $circle-size: 25px;
 
 .circle {
+  display: inline-block;
   border-radius: 50%;
   width: $circle-size;
   height: $circle-size;

@@ -1,0 +1,21 @@
+.product_picture {
+  background-image: url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b17958c40e777065643cb65954bede79&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  .dressing_btn {
+    color: $white;
+    padding: 0;
+    .bloc-btn {
+      background: $orange;
+      border-radius: 30px;
+      width: 73%;
+      height: 45px;
+      i {
+        font-size: 39px;
+        color: #fff;
+      }
+    }
+  }
+}
