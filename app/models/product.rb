@@ -18,14 +18,4 @@ class Product < ApplicationRecord
       :danger
     end
   end
-
-  def carbon_score
-    case carbon_footprint
-    when 1..2000
-      :success
-    when
-      :info
-    when
-      :danger
-  end
 end
