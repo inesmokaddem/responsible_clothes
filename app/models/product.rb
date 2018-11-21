@@ -2,11 +2,8 @@ class Product < ApplicationRecord
   enum gender: [:women, :men, :child]
   belongs_to :brand
   has_many :favorites
-  CATEGORY = {
-    women: ['Dress', 'T-shirt', 'Shirt/Blouse', 'Blazer', 'Sweatshirt', 'Sweater', 'Jacket', 'Trouser', 'Jumpsuit', 'Skirt', 'Shoes', 'Short', 'Swimwear', 'Lingerie', 'Socks', 'Pijama', 'Coat', 'Gloves'],
-    men: ['Sweatshirt', 'Shirt', 'Trouser', 'Sweater', 'Jacket', 'T-shirt', 'Blazer', 'Shoes', 'Underwear', 'Short', 'Swimwear', 'Socks', 'Gloves', 'Pijama'],
-    child: ['Dress', 'T-shirt', 'Shirt', 'Jacket', 'Socks', 'Swimwear', 'Short', 'Shoes', 'Sweater', 'Sweatshirt', 'Blazer', 'Body', 'Coat', 'Gloves', 'Trouser', 'Jumpsuit', 'Legging', 'Pijama', 'Skirt']
-  }
+  belongs_to :gender
+  belongs_to :category
 
   validates :name, presence: true
   validates :description, presence: true
