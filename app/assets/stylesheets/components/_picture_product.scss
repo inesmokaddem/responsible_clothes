@@ -3,18 +3,4 @@
   height: 170px;
   display: flex;
   align-items: center;
-  .dressing_btn {
-    color: $white;
-    padding: 0;
-    .bloc-btn {
-      background: $orange;
-      border-radius: 30px;
-      width: 73%;
-      height: 45px;
-      i {
-        font-size: 39px;
-        color: #fff;
-      }
-    }
-  }
 }
