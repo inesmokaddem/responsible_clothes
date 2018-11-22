@@ -1,0 +1,6 @@
+<h1>Favorites#index</h1>
+
+
+<% @products.each do |product| %>
+  <%= render "favorite_product", product: product %>
+<% end %>
