@@ -1,0 +1,14 @@
+.btn-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  padding: 0;
+  background: $orange;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  i {
+    font-size: 39px;
+  }
+}
