@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
+
   enum gender: [:women, :men, :child]
   belongs_to :brand
   has_many :favorites
@@ -11,7 +13,6 @@ class Product < ApplicationRecord
   validates :category, presence: true
   validates :water_footprint, presence: true
   validates :carbon_footprint, presence: true
-  validates :photo
 
   def water_score
     case water_footprint

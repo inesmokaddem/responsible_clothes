@@ -2,6 +2,8 @@
   <%= simple_form_for @product do |f| %>
     <%= f.input :name, placeholder: 'Leather Jacket' %>
     <%= f.input :description, as: :text, placeholder: 'Blue pant in cotton', input_html: { maxlength: 150 } %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
     <%= f.association :gender, as: :radio_buttons, wrapper: :horizontal_collection_inline %>
     <%= f.association :category, prompt: "Choose a Category" %>
     <%= f.association :brand, prompt: "Choose a Brand" %>
