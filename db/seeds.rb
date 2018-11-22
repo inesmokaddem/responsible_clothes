@@ -71,12 +71,15 @@ diesel = Brand.create(
             rating:2)
 
 puts "Creating 1 product"
-Product.create(
-  name: "tee-shirt",
-  description: "coton bio",
-  water_footprint: 3,
-  carbon_footprint: 5,
-  brand: zara,
-  gender: men,
-  category: categories['T-shirt']
-)
+product =  Product.new(
+                      name: "tee-shirt",
+                      description: "coton bio",
+                      water_footprint: 3,
+                      carbon_footprint: 5,
+                      brand: zara,
+                      gender: men,
+                      category: categories['T-shirt']
+                      )
+url = "https://cdn.shopify.com/s/files/1/2277/0027/products/3256206_191bb8162e_800x.jpg?v=1539401500"
+product.remote_photo_url = url
+product.save
