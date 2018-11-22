@@ -1,12 +1,12 @@
 <div class="container">
   <%= simple_form_for @product do |f| %>
-    <%= f.input :name, placeholder: 'Jane Doe' %>
-    <%= f.input :description, placeholder: 'Blue pant in cotton' %>
-    <%= f.association :gender, as: :radio_buttons %>
-    <%= f.association :category %>
-    <%= f.association :brand %>
-    <%= f.input :water_footprint %>
-    <%= f.input :carbon_footprint %>
-    <%= f.submit 'Create Product' %>
+    <%= f.input :name, placeholder: 'Leather Jacket' %>
+    <%= f.input :description, as: :text, placeholder: 'Blue pant in cotton', input_html: { maxlength: 150 } %>
+    <%= f.association :gender, as: :radio_buttons, wrapper: :horizontal_collection_inline %>
+    <%= f.association :category, prompt: "Choose a Category" %>
+    <%= f.association :brand, prompt: "Choose a Brand" %>
+    <%= f.input :water_footprint, placeholder: '7000 (Liters)' %>
+    <%= f.input :carbon_footprint, placeholder: '5000 (Kilometers)' %>
+    <%= f.submit 'Create Product', class: "btn btn-primary" %>
   <% end %>
 </div>
