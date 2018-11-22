@@ -11,6 +11,7 @@ class Product < ApplicationRecord
   validates :category, presence: true
   validates :water_footprint, presence: true
   validates :carbon_footprint, presence: true
+  validates :photo
 
   def water_score
     case water_footprint
