@@ -48,7 +48,7 @@
             Carbon footprint
           </div>
           <div class="d-flex align-items-center">
-            <%= @product.carbon_footprint %> l
+            <%= @product.carbon_footprint %> Kg
             <div class="mx-2 circle circle-<%= @product.water_score  %>"></div>
             <div class="arrow_down">
               <%= inline_svg "arrow-down.svg", width: 16, height: 8 %>
@@ -76,7 +76,6 @@
             Labour conditions
           </div>
           <div class="d-flex align-items-center">
-            <%= @product.water_footprint %> l
             <div class="mx-2 circle circle-<%= @product.water_score  %>"></div>
             <div class="arrow_down">
               <%= inline_svg "arrow-down.svg", width: 16, height: 8 %>
@@ -99,7 +98,6 @@
             Transparency
           </div>
           <div class="d-flex align-items-center">
-            <%= @product.carbon_footprint %> l
             <div class="mx-2 circle circle-<%= @product.water_score  %>"></div>
             <div class="arrow_down">
               <%= inline_svg "arrow-down.svg", width: 16, height: 8 %>
