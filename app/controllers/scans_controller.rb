@@ -3,19 +3,17 @@ class ScansController < ApplicationController
   end
 
   def create
-    @product = Product.find(params[:ean])
-    if @product.exists?
+    @product = Product.find_by(scan_params)
+    if @product
       redirect_to product_path(@product)
     else
-      redirect_to new_product_path
-      @product = Product.new(product_params)
-      @product.user = current_user
+      redirect_to new_product_path(scan_params)
     end
   end
 
   private
 
-  def product_params
-    params.require(:product).permit(:name, :description, :water_footprint, :carbon_footprint, :brand_id, :category_id, :gender_id)
+  def scan_params
+    params.require(:scan).permit(:ean)
   end
 end

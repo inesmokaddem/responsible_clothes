@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    @product = Product.new(ean: params[:ean])
   end
 
   def create
