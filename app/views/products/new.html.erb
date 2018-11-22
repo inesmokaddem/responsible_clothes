@@ -5,8 +5,8 @@
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.association :gender, as: :radio_buttons, wrapper: :horizontal_collection_inline %>
-    <%= f.association :category, prompt: "Choose a Category" %>
-    <%= f.association :brand, prompt: "Choose a Brand" %>
+    <%= f.association :category, prompt: "Choose a Category", input_html: {class:"select2"} %>
+    <%= f.association :brand, prompt: "Choose a Brand", input_html: {class:"select2"} %>
     <%= f.input :water_footprint, placeholder: '7000 (Liters)' %>
     <%= f.input :carbon_footprint, placeholder: '5000 (Kilometers)' %>
     <%= f.submit 'Create Product', class: "btn btn-primary" %>

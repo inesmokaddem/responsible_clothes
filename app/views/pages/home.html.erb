@@ -1,2 +1,8 @@
 <h1 class="display-1 my-5">Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<%= select_tag "timezone", options_from_collection_for_select(
+      ActiveSupport::TimeZone.all.
+        map { |tz| tz.tzinfo }.
+        sort_by { |tzinfo| tzinfo.name },
+      :name, :name),
+      class: 'select2' %>
