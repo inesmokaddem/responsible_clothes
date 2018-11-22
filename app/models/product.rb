@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
+
   enum gender: [:women, :men, :child]
   belongs_to :brand
   has_many :favorites
