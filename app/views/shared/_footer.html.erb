@@ -1,22 +1,22 @@
 <footer class="footer_btn">
-  <%= link_to() do %>
-    <button class="pl-4 my-2" type="button" name="button">
+  <%= link_to("/") do %>
+    <div class="pl-4 my-2">
       <%= inline_svg("scan.svg", width: 32) %>
       <p class="mb-0">Scan</p>
-    </button>
+    </div>
   <% end %>
   <%= link_to() do %>
-    <button class="my-2" type="button" name="button">
+    <div class="my-2">
       <%= inline_svg("search.svg", width: 32) %>
       <p class="mb-0">Search</p>
-    </button>
+    </div>
   <% end %>
   <%= link_to() do %>
     <div class="dressing_footer">
-      <button class="my-2" type="button" name="button">
+      <div class="my-2 text-center pr-4">
         <%= inline_svg("dressing.svg", width: 32) %>
         <p class="mb-0">Dressing</p>
-      </button>
+      </div>
     </div>
   <% end %>
 </footer>
