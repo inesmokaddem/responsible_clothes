@@ -3,5 +3,7 @@
   <div class="user-avatar"><%= image_tag "https://res.cloudinary.com/be-better-hotels/image/upload/v1542389366/hbiylvxp7qbuz27wbtxx.jpg" %></div>
 </div>
 <% @products.each do |product| %>
-  <%= render "favorite_product", product: product %>
+  <%= link_to(product_path(product)) do %>
+    <%= render "favorite_product", product: product %>
+  <% end %>
 <% end %>
