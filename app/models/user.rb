@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :favorites
   has_many :products, through: :favorites
+
+  def has_favorited?(product)
+    favorites.find_by(product: product).present?
+  end
 end

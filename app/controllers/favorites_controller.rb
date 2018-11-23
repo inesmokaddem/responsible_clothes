@@ -4,21 +4,14 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Favorite.new(favorite_params)
+    @favorite = Favorite.new
     @favorite.product = Product.find(params[:product_id])
     @favorite.user = current_user
 
-    if @favorite.save
-      redirect_to favorite_path(@favorite.product), notice: 'A favorite was successfully created'
-    else
-      render 'products/show'
+    @favorite.save
+
+    respond_to do |format|
+      format.js # create.js.erb
     end
   end
-
-  private
-
-  def favorite_params
-    params.require(:favorite).permit()
-  end
-
 end

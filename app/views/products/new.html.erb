@@ -1,5 +1,6 @@
 <div class="container">
   <%= simple_form_for @product do |f| %>
+    <%= f.input :ean, as: :hidden %>
     <%= f.input :name, placeholder: 'Leather Jacket' %>
     <%= f.input :description, as: :text, placeholder: 'Blue pant in cotton', input_html: { maxlength: 150 } %>
     <%= f.input :photo %>
