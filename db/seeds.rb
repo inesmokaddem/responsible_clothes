@@ -87,6 +87,8 @@ product =  Product.new(
                       gender: men,
                       category: categories['T-shirt']
                       )
+
+# Product.new( name: "T-SHIRT", description: "T-shirt basique coupe regular avec col rond et manches courtes - 5,95€",water_footprint: 3,carbon_footprint: 5,brand: zara,gender: men,category: categories['T-shirt'])
 url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1542974404/tshirthomme-zara.jpg"
 product.remote_photo_url = url
 product.save
