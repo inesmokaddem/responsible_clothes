@@ -27,3 +27,11 @@
       width: 128px;
     }
 }
+
+.product-card {
+  color: #6b6964;
+  &:hover {
+    text-decoration: none;
+    color: $orange;
+  }
+}
