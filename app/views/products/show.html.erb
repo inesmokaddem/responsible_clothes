@@ -1,11 +1,17 @@
 <div class="test">
-  <div class="product_picture">
+  <div class="product_picture" style="background-image: url('<%= cl_image_path @product.photo %>');">
     <div class="col-10">
       <i class="fas fa-angle-left back_arrow"></i>
     </div>
-    <div class="col-2 dressing_btn">
-      <div class="bloc-btn">
-        <button type="button" name="button"><i class="fas fa-plus"></i></button>
+    <div class="col-2">
+      <div id="favorite-action">
+        <% if current_user.has_favorited?(@product) %>
+          <%= render "favorites/added" %>
+        <% else %>
+          <%= link_to product_favorites_path(@product), class: "btn-circle", method: :post, remote: true do %>
+            <%= inline_svg "heart.svg", width: 39 %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
