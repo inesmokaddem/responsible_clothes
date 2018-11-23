@@ -18,7 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'inline_svg'
 
-gem 'cloudinary'
+gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave'
 
 group :development do
