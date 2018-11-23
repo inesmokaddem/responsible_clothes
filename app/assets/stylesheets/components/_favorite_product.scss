@@ -1,0 +1,29 @@
+.favorite-product {
+  margin-top: 8px;
+  display: flex;
+  background-color: $beigeligth;
+  font-family: 'Ubuntu', sans-serif;
+  h4 {
+    margin: 10px 0 0 10px;
+    color: $brown;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  p {
+    margin: 0 0 0 10px;
+    font-size: 0.9em;
+    line-height: 1.2em;
+  }
+}
+
+.image-product {
+    height: 80px;
+    width: 128px;
+    overflow: hidden;
+    // background-size: 300px 100px;
+    // background-position: -50% -20%;
+    flex: 0 0 128px;
+    img {
+      width: 128px;
+    }
+}
