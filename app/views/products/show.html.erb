@@ -1,6 +1,7 @@
 <div class="show_product">
   <div class="product_picture" style="background-image: url('<%= cl_image_path @product.photo if @product.photo.present? %>');" >
     <div class="col-10">
+      <%= link_to 'Back', :back %>
       <i class="fas fa-angle-left back_arrow"></i>
     </div>
     <div class="col-2">
