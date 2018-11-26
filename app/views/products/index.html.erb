@@ -1,13 +1,20 @@
-<div class="product-list-header">
-  <h1>Search BAR</h1>
-  <div class="user-avatar"><%= image_tag "https://res.cloudinary.com/be-better-hotels/image/upload/v1542389366/hbiylvxp7qbuz27wbtxx.jpg" %></div>
+<div class="header">
+  <%= form_tag products_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control select2",
+    placeholder: "Find a product"
+  %>
+<% end %>
 </div>
 <div class="container">
   <div class="row">
-    <% @products.each do |product| %>
-      <%= link_to(product_path(product)) do %>
+    <div>
+      <% @products.each do |product| %>
+        <%= link_to(product_path(product)) do %>
         <%= render "product", product: product %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
