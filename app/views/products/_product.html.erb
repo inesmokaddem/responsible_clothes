@@ -1,10 +1,11 @@
-<div class="product-card-list">
-  <div class="image-product">
-    <%= cl_image_tag product.photo %>
+<%= link_to(product_path(product)) do %>
+  <div class="card-product" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= (cl_image_path product.photo) if product.photo.present?  %>');">
+    <div class="card-body">
+      <span class="card-brand"><%= product.brand.name %></span>
+    </div>
+    <div class="card-footer">
+      <div class="product_name"><%= product.name %></div>
+      <div class="product_price"><%= product.price %> €</div>
+    </div>
   </div>
-  <div>
-    <div class="card-title"><%= product.name %></div>
-    <div class="card-subtitle"><%= product.brand.name %></div>
-    <p><%= product.price %></p>
-  </div>
-</div>
+<% end %>
