@@ -14,22 +14,13 @@ categories_data = [
   { name: 'Shirt/Blouse' },
   { name: 'Blazer' },
   { name: 'Sweatshirt' },
-  { name: 'Sweater' },
   { name: 'Jacket' },
   { name: 'Trouser' },
   { name: 'Jumpsuit' },
+  { name: 'Jean' },
   { name: 'Skirt' },
-  { name: 'Shoes' },
   { name: 'Short' },
-  { name: 'Swimwear' },
-  { name: 'Lingerie' },
-  { name: 'Socks' },
-  { name: 'Pijama' },
-  { name: 'Coat' },
-  { name: 'Gloves' },
   { name: 'Shirt' },
-  { name: 'Underwear' },
-  { name: 'Body' },
   { name: 'Legging' }
 ]
 
