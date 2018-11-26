@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    if params[:query].present?
+      @products = Product.where(name: params[:query])
+    else
+      @products = Product.all
+    end
   end
 
   def show
@@ -25,6 +29,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :photo, :category, :water_footprint, :carbon_footprint, :brand_id, :gender_id, :category_id, :ean)
+    params.require(:product).permit(:name, :description, :price, :photo, :photo_cache, :category, :water_footprint, :carbon_footprint, :brand_id, :gender_id, :category_id, :ean)
   end
 end

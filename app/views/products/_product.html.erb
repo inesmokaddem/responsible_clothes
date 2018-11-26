@@ -1,8 +1,10 @@
-<div class="col-6 product-card-list">
+<div class="product-card-list">
   <div class="image-product">
     <%= cl_image_tag product.photo %>
   </div>
-  <div class="card-title"><%= product.name %></div>
-      <div class="card-subtitle"><%= product.brand.name %></div>
+  <div>
+    <div class="card-title"><%= product.name %></div>
+    <div class="card-subtitle"><%= product.brand.name %></div>
+    <p><%= product.price %></p>
   </div>
 </div>

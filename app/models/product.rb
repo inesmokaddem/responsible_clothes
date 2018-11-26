@@ -9,6 +9,7 @@ class Product < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
+  validates :price, presence: true
   validates :gender, presence: true
   validates :category, presence: true
   validates :water_footprint, presence: true
@@ -24,4 +25,15 @@ class Product < ApplicationRecord
       :danger
     end
   end
+
+  include PgSearch
+  pg_search_scope :search_by_name_and_price,
+    against: [ :name, :price ],
+    associated_against: {
+      :brand => :name,
+      :category => :name
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
