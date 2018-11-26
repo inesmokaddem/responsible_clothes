@@ -1,1 +1,33 @@
-
+.card-product {
+  margin: 10px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  background-position: center;
+  background-size: cover;
+  &:hover {
+    text-decoration: none;
+  }
+  .card-body {
+    height: 180px;
+    background-size: cover;
+    color: white;
+    position: relative;
+  }
+  .card-description {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: white;
+    border-radius: 0;
+    color: $orange;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
