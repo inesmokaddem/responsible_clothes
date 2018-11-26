@@ -1,13 +1,17 @@
 <div class="container">
   <%= simple_form_for @product do |f| %>
+    <h3 class="mt-3">Product info</h3>
     <%= f.input :ean, as: :hidden %>
     <%= f.input :name, placeholder: 'Leather Jacket' %>
     <%= f.input :description, as: :text, placeholder: 'Blue pant in cotton', input_html: { maxlength: 150 } %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
+
     <%= f.association :gender, as: :radio_buttons, wrapper: :horizontal_collection_inline %>
+
     <%= f.association :category, prompt: "Choose a Category", input_html: {class:"select2"} %>
     <%= f.association :brand, prompt: "Choose a Brand", input_html: {class:"select2"} %>
+    <h3 class="mt-3">Additional info</h3>
     <%= f.input :water_footprint, placeholder: '7000 (Liters)' %>
     <%= f.input :carbon_footprint, placeholder: '5000 (Kilometers)' %>
     <%= f.submit 'Create Product', class: "btn btn-primary" %>

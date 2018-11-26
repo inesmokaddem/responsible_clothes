@@ -1,0 +1,26 @@
+input[type="radio"] {
+  display:none;
+}
+.product_gender {
+  &:first-child {
+    display: none;
+  }
+}
+
+label.collection_radio_buttons {
+  border: 1px solid #DDD;
+  border-radius:5px;
+  padding:7px 20px;
+  margin-top:10px;
+  display:block;
+  position:relative;
+  margin: 0px 16px;
+}
+
+input[type="radio"]:checked + label {
+  background-color:$orange;
+  color: #fff;
+}
+abbr {
+  color: $orange;
+}
