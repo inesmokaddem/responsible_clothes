@@ -25,15 +25,13 @@ class Product < ApplicationRecord
       :danger
     end
   end
-
   include PgSearch
-  pg_search_scope :search_by_name_and_price,
+  pg_search_scope :search,
     against: [ :name, :price ],
     associated_against: {
-      :brand => :name,
-      :category => :name
+      brand: [ :name ]
     },
     using: {
-      tsearch: { prefix: true }
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 end
