@@ -6,9 +6,12 @@
   padding: 0;
   background: $orange;
   border-radius: 50%;
-  height: 54px;
-  width: 54px;
+  height: 46px;
+  width: 46px;
   i {
     font-size: 39px;
+  }
+  svg {
+    width: 30px;
   }
 }
