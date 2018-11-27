@@ -31,3 +31,16 @@
     }
   }
 }
+
+.header-product {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    .flex-item:first-child {
+    margin-left: 20px;
+    }
+    .flex-item:last-child {
+    margin-right: 20px;
+    }  
+}
