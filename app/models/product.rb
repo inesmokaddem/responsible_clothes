@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+  after_create :water_footprint_calculation
+  after_update :water_footprint_calculation
+
   mount_uploader :photo, PhotoUploader
 
   enum gender: [:women, :men, :child]
@@ -6,6 +9,7 @@ class Product < ApplicationRecord
   has_many :favorites
   belongs_to :gender
   belongs_to :category
+  belongs_to :material
 
   validates :name, presence: true
   validates :description, presence: true
@@ -15,16 +19,6 @@ class Product < ApplicationRecord
   validates :water_footprint, presence: true
   validates :carbon_footprint, presence: true
 
-  def water_score
-    case water_footprint
-    when 1..20000
-      :success
-    when 20001..50000
-      :info
-    when 50001..99999999999
-      :danger
-    end
-  end
   include PgSearch
   pg_search_scope :search,
     against: [ :name, :price ],
@@ -34,4 +28,9 @@ class Product < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
+  def water_footprint_calculation
+    wfp_value = category_id.weight * materials_id.water_foot_print_per_kilo
+    self.update(water_footprint: wfp_value)
+  end
 end
