@@ -11,9 +11,12 @@ label.collection_radio_buttons {
   border: 1px solid #DDD;
   border-radius:5px;
   padding:20px 20px;
-  margin-top:10px;
+  // margin-top:10px;
   display:block;
   position:relative;
+  width: 100%;
+  text-align: center;
+  margin-right: 4px;
 }
 
 .form-check-inline {
