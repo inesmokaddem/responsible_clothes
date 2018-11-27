@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_11_27_143128) do
 
   # These are extensions that must be enabled in order to support this database
@@ -29,6 +30,13 @@ ActiveRecord::Schema.define(version: 2018_11_27_143128) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "weight"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.integer "distance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -53,15 +61,6 @@ ActiveRecord::Schema.define(version: 2018_11_27_143128) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pg_search_documents", force: :cascade do |t|
-    t.text "content"
-    t.string "searchable_type"
-    t.bigint "searchable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -79,9 +78,11 @@ ActiveRecord::Schema.define(version: 2018_11_27_143128) do
     t.string "photo"
     t.integer "price"
     t.bigint "material_id"
+    t.bigint "country_id"
     t.integer "price_cents", default: 0, null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["country_id"], name: "index_products_on_country_id"
     t.index ["gender_id"], name: "index_products_on_gender_id"
     t.index ["material_id"], name: "index_products_on_material_id"
   end
@@ -102,6 +103,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_143128) do
   add_foreign_key "favorites", "users"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "countries"
   add_foreign_key "products", "genders"
   add_foreign_key "products", "materials"
 end

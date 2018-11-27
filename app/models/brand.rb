@@ -5,4 +5,6 @@ class Brand < ApplicationRecord
   validates :description, presence: true
   validates :country, presence: true
   validates :rating, presence: true
+
+  default_scope -> { order(name: :asc) }
 end

@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   before_validation :water_footprint_calculation
+  before_validation :carbon_footprint_calculation
 
   mount_uploader :photo, PhotoUploader
 
@@ -11,6 +12,7 @@ class Product < ApplicationRecord
   belongs_to :gender
   belongs_to :category
   belongs_to :material
+  belongs_to :country
 
   validates :name, presence: true
   validates :description, presence: true
@@ -19,6 +21,7 @@ class Product < ApplicationRecord
   validates :category, presence: true
   validates :water_footprint, presence: true
   validates :carbon_footprint, presence: true
+  validates :country, presence: true
   validates :price_cents, presence: true
 
   include PgSearch
@@ -35,4 +38,11 @@ class Product < ApplicationRecord
     wfp_value = category.weight * material.water_foot_print_per_kilo
     self.water_footprint = wfp_value
   end
+
+  def carbon_footprint_calculation
+    cfp_value = country.distance
+    self.carbon_footprint = cfp_value
+  end
+
+  default_scope -> { order(name: :asc) }
 end
