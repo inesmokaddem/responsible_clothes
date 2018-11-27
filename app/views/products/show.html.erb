@@ -1,18 +1,19 @@
 <div class="show_product">
   <div class="product_picture" style="background-image: url('<%= cl_image_path @product.photo if @product.photo.present? %>');" >
-    <div class="col-10">
-      <%= link_to 'Back', :back %>
-      <i class="fas fa-angle-left back_arrow"></i>
-    </div>
-    <div class="col-2">
-      <div id="favorite-action">
-        <% if current_user.has_favorited?(@product) %>
-          <%= render "favorites/added" %>
-        <% else %>
-          <%= link_to product_favorites_path(@product), class: "btn-circle", method: :post, remote: true do %>
-            <%= inline_svg "heart.svg", width: 39 %>
+    <div class="header-product">
+      <div class="flex-item">
+        <%= link_to '', :back, class:"fas fa-angle-left back_arrow" %>
+      </div>
+      <div class="flex-item">
+        <div id="favorite-action">
+          <% if current_user.has_favorited?(@product) %>
+            <%= render "favorites/added" %>
+          <% else %>
+            <%= link_to product_favorites_path(@product), class: "btn-circle", method: :post, remote: true do %>
+              <%= inline_svg "heart.svg", width: 39 %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
