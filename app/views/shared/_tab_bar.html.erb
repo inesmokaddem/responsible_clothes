@@ -1,5 +1,5 @@
 <footer class="tab-bar">
-  <div class="tab">
+  <div class="tab scan">
     <%= link_to("/") do %>
       <div class="tab-bar-icon text-center">
         <%= inline_svg("scan.svg", width: 32) %>
@@ -7,15 +7,15 @@
       <p class="mb-0 text-center">Scan</p>
     <% end %>
   </div>
-  <div class="tab">
-    <%= link_to() do %>
+  <div class="tab search">
+    <%= link_to("/products") do %>
       <div class="tab-bar-icon text-center">
         <%= inline_svg("search.svg", width: 32) %>
       </div>
       <p class="mb-0 text-center">Search</p>
     <% end %>
   </div>
-  <div class="tab">
+  <div class="tab dressing">
     <%= link_to("/favorites") do %>
       <div class="tab-bar-icon text-center">
         <%= inline_svg("dressing.svg", width: 32) %>
