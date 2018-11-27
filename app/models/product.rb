@@ -4,6 +4,8 @@ class Product < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  monetize :price_cents
+
   enum gender: [:women, :men, :child]
   belongs_to :brand
   has_many :favorites
@@ -20,6 +22,7 @@ class Product < ApplicationRecord
   validates :water_footprint, presence: true
   validates :carbon_footprint, presence: true
   validates :country, presence: true
+  validates :price_cents, presence: true
 
   include PgSearch
   pg_search_scope :search,
