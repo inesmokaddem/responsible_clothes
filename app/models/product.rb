@@ -33,7 +33,16 @@ class Product < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
-
+  def water_score
+    case water_footprint
+    when 1..20000
+      :success
+    when 20001..50000
+      :info
+    when 50001..99999999999
+      :danger
+    end
+  end
   def water_footprint_calculation
     wfp_value = category.weight * material.water_foot_print_per_kilo
     self.water_footprint = wfp_value
