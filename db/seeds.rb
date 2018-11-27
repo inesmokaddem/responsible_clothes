@@ -1,10 +1,10 @@
-# Favorite.destroy_all
-User.destroy_all
+Favorite.destroy_all
 Product.destroy_all
 Brand.destroy_all
 Gender.destroy_all
 Category.destroy_all
 Material.destroy_all
+User.destroy_all
 
 puts "Creating toto user"
 toto = User.new(email: "toto@toto.com", password: "secret")
