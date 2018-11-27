@@ -1,6 +1,43 @@
-<div class="container">
-  <%= simple_form_for :scan, url: scans_path do |f| %>
-    <%= f.input :ean %>
-    <%= f.submit class: "btn btn-primary" %>
+  <%= simple_form_for :scan, url: scans_path, html: {id: "form_scan"} do |f| %>
+    <%= f.input_field :ean, as: :hidden %>
   <% end %>
-</div>
+
+<div id="scandit-barcode-picker" class="scandit"></div>
+
+<script src="https://unpkg.com/scandit-sdk"></script>
+<script>
+    const licenseKey = "AQ7MhhrbBhHsPMwydwwb+vMNI7nFMbWeiXcbcPteEJdEbimxuFLdSaVy+JBWc6D03Apa9/RYOZMMUpqUjUiAlPcE34IxAKMF20ax+/Bre1q/RHl9m3rTdOB763j7a71I+BdRJsALECuGCobyfE0U8AvhRDYr0j2/1bmlknQ1MolIC+bAsjoTYP1zObVKi+YRtWGa7zhbENnIzO+1o6vQY2YOpnSqnRIznokxDlAs32caTRRDG8OUqliHGOUabmYLZeta/dFEJyLJ/Y2PSg+AU0g3poelKDj8EKBcUcThjLcpWaWbxrkDEjRFMTR+YZQHmhs+42N7nmAatkAztDzSN2XXPerI0TzukqcL6ZicDaSSfohzHr9BzTUTp7cafwDza+H9mur8rv08+7y2JwBGXZaNy4wBHNmYdS4g1ZLl+E6X75VxYMK/MCmBaaLEn+sHjgjL3F1aMHyGIECdNgCVHdTI9YHJnJIMQDifpIOYcWJDYppjT9BT6gvnlaohxIC+Hd5GSOlHBWLq82B85U/mSSRbHHmA1WSQRGTZH3dxaxchFXLCQFV89HCpzfp6P3gthZwg68Sh/ebj5P2q+Fj7go9ZQ79QCdeXkNtT1iK3Szn7y9pYSJk7Fggp5MM2aaxCqLpSimiVnjNA+PHBk6MPLAjl8wFCPxIGWsmW+PRcPbbr8Hq85cPkVBG95pORhHLMMggbJdETKMSIIDEZP9KTYb079tfy4qqeSvFtCZQK/U0UqZS85srjR/B3zXO37awnvTlOcoN2jJ4A5A9BPDoXTvR52kUda76Me3FN/YT+W57VIIRj5LdV7yXXQg==";
+    const scanditOptions = { engineLocation: "https://unpkg.com/scandit-sdk/build", preloadEngineLibrary: true, preloadCameras: true };
+    ScanditSDK.configure(licenseKey, scanditOptions);
+    const scannerContainer = document.getElementById("scandit-barcode-picker");
+    let picker;
+
+    ScanditSDK.BarcodePicker.create(scannerContainer, {
+      playSoundOnScan: true,
+      vibrateOnScan: true
+    }).then(function(barcodePicker) {
+      picker = barcodePicker;
+      const scanSettings = new ScanditSDK.ScanSettings({
+        enabledSymbologies: ["ean8", "ean13"],
+        codeDuplicateFilter: 1000
+      });
+      picker.applyScanSettings(scanSettings);
+
+      picker.onScan(function(scanResult) {
+        picker.pauseScanning();
+
+        var barcode = scanResult.barcodes[0].data;
+        const inputEan = document.getElementById('scan_ean');
+        const formEan = document.getElementById('form_scan');
+        inputEan.value = barcode;
+        formEan.submit();
+
+        picker.onScanError(function(error) {
+          console.error(error.message);
+        });
+        picker.resumeScanning();
+      }).catch(function(error) {
+        console.log(error);
+      });
+    });
+</script>
