@@ -1,6 +1,5 @@
 class Product < ApplicationRecord
-  after_create :water_footprint_calculation
-  after_update :water_footprint_calculation
+  before_validation :water_footprint_calculation
 
   mount_uploader :photo, PhotoUploader
 
@@ -30,7 +29,7 @@ class Product < ApplicationRecord
     }
 
   def water_footprint_calculation
-    wfp_value = category_id.weight * materials_id.water_foot_print_per_kilo
-    self.update(water_footprint: wfp_value)
+    wfp_value = category.weight * material.water_foot_print_per_kilo
+    self.water_footprint = wfp_value
   end
 end
