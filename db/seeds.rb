@@ -41,10 +41,7 @@ materials_data = [
   { name: 'Polyester', water_foot_print_per_kilo: 900 },
   { name: 'Viscose', water_foot_print_per_kilo: 3300 },
   { name: 'Wool', water_foot_print_per_kilo: 50 },
-  { name: 'Silk', water_foot_print_per_kilo: }, *
   { name: 'Leather', water_foot_print_per_kilo: 13000 },
-  { name: 'Polyamide', water_foot_print_per_kilo: }, *
-  { name: 'Elastane', water_foot_print_per_kilo: }, *
   { name: 'Nylon', water_foot_print_per_kilo: 3550 },
   { name: 'Acrylic', water_foot_print_per_kilo: 1100 },
 ]
