@@ -9,6 +9,7 @@ class Product < ApplicationRecord
   belongs_to :gender
   belongs_to :category
   belongs_to :material
+  belongs_to :country
 
   validates :name, presence: true
   validates :description, presence: true
@@ -32,4 +33,6 @@ class Product < ApplicationRecord
     wfp_value = category.weight * material.water_foot_print_per_kilo
     self.water_footprint = wfp_value
   end
+
+  default_scope -> { order(name: :asc) }
 end
