@@ -12,9 +12,8 @@
 
     <%= f.association :category, prompt: "Choose a Category", input_html: {class:"select2"} %>
     <%= f.association :brand, prompt: "Choose a Brand", input_html: {class:"select2"} %>
-    <h3 class="mt-3">Additional info</h3>
-    <%= f.input :water_footprint, placeholder: '7000 (Liters)' %>
-    <%= f.input :carbon_footprint, placeholder: '5000 (Kilometers)' %>
+    <%= f.association :material, prompt: "Choose a Material", input_html: {class:"select2"} %>
+
     <%= f.submit 'Create Product', class: "btn btn-primary" %>
   <% end %>
 </div>
