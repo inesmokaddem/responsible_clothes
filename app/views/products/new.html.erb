@@ -5,7 +5,7 @@
     <%= f.input :name, placeholder: 'Leather Jacket' %>
     <%= f.input :description, as: :text, placeholder: 'Blue pant in cotton', input_html: { maxlength: 150 } %>
     <%= f.input :price, as: :currency %>
-    <%= f.input :photo %>
+    <%= f.input :photo, input_html: {class:"btn btn-secondary"} %>
     <%= f.input :photo_cache, as: :hidden, input_html: {class:"btn btn-primary"} %>
 
     <%= f.association :gender, as: :radio_buttons, wrapper: :horizontal_collection_inline %>
@@ -15,6 +15,6 @@
     <%= f.association :material, prompt: "Choose a Material", input_html: {class:"select2"} %>
     <%= f.association :country, prompt: "Choose a Country", input_html: {class:"select2"} %>
 
-    <%= f.submit 'Create Product', class: "btn btn-primary" %>
+    <%= f.submit 'Create Product', class: "center-wide btn btn-primary" %>
   <% end %>
 </div>
