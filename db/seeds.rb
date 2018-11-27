@@ -4,9 +4,12 @@ Product.destroy_all
 Brand.destroy_all
 Gender.destroy_all
 Category.destroy_all
+Material.destroy_all
 
-puts "Creating tot user"
+puts "Creating toto user"
 toto = User.new(email: "toto@toto.com", password: "secret")
+
+puts "Creating Categories"
 
 categories_data = [
   { name: 'Dress', weight: 0.35 },
@@ -35,23 +38,28 @@ categories_data.each do |category_data|
   categories[category_data[:name]] = Category.create!(category_data)
 end
 
+puts "Creating Materials"
+
 materials_data = [
-  { name: 'Cotton', water_foot_print_per_kilo: 10000 },
-  { name: 'Linen', water_foot_print_per_kilo: 450 },
-  { name: 'Polyester', water_foot_print_per_kilo: 900 },
-  { name: 'Viscose', water_foot_print_per_kilo: 3300 },
-  { name: 'Wool', water_foot_print_per_kilo: 50 },
+  { name: 'Cotton', water_foot_print_per_kilo: 7000 },
+  { name: 'Linen', water_foot_print_per_kilo: 2050 },
+  { name: 'Polyester', water_foot_print_per_kilo: 500 },
+  { name: 'Viscose', water_foot_print_per_kilo: 3800 },
+  { name: 'Wool', water_foot_print_per_kilo: 2250 },
+  { name: 'Silk', water_foot_print_per_kilo: 35000 },
+  { name: 'Polyamide', water_foot_print_per_kilo: 500 },
   { name: 'Leather', water_foot_print_per_kilo: 13000 },
   { name: 'Nylon', water_foot_print_per_kilo: 3550 },
-  { name: 'Acrylic', water_foot_print_per_kilo: 1100 },
+  { name: 'Acrylic', water_foot_print_per_kilo: 200 },
 ]
 
-categories = {}
+materials = {}
 
-categories_data.each do |category_data|
-  categories[category_data[:name]] = Category.create!(category_data)
+materials_data.each do |material_data|
+  materials[material_data[:name]] = Material.create!(material_data)
 end
 
+puts "Creating Genders"
 
 men = Gender.create!(name: "Men")
 women = Gender.create!(name: "Women")
@@ -92,13 +100,14 @@ diesel = Brand.create(
 
 puts "Creating products"
 product =  Product.new(
+                      ean: 1234567,
                       name: "T-SHIRT",
                       description: "T-shirt basique coupe regular avec col rond et manches courtes - 5,95€",
-                      water_footprint: 3,
-                      carbon_footprint: 5,
+                      water_footprint: 0,
                       brand: zara,
                       gender: men,
-                      category: categories['T-shirt']
+                      category: categories['T-shirt'],
+                      material: materials['Polyester']
                       )
 
 # Product.new( name: "T-SHIRT", description: "T-shirt basique coupe regular avec col rond et manches courtes - 5,95€",water_footprint: 3,carbon_footprint: 5,brand: zara,gender: men,category: categories['T-shirt'])
@@ -108,13 +117,14 @@ product.save
 # https://www.zara.com/fr/fr/t-shirt-basique-coupe-regular-p09240330.html?v1=8188049&v2=1079339
 
 product2 =  Product.new(
+                      ean: 87654321,
                       name: "Sweater",
                       description: "Sweat à capuche kaws x Sesame Street femme - 24,90€",
-                      water_footprint: 3,
-                      carbon_footprint: 5,
+                      water_footprint: 0,
                       brand: zara,
                       gender: women,
-                      category: categories['Sweater']
+                      category: categories['Sweater'],
+                      material: materials['Wool']
                       )
 url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1542974404/sweater-femme-uniqlo.jpg"
 product2.remote_photo_url = url
@@ -122,13 +132,14 @@ product2.save
 # https://www.uniqlo.com/fr/fr/product/sweat-a-capuche-kaws-x-sesame-street-femme-416097.html?dwvar_416097_size=SMA002&dwvar_416097_color=COL69&cgid=IDhooded-sweatshirts1243
 
 product3 =  Product.new(
+                      ean: 13245768,
                       name: "Pantalon",
                       description: "Pantalon flare velours côtelé - 59,99€",
-                      water_footprint: 3,
-                      carbon_footprint: 5,
+                      water_footprint: 0,
                       brand: zara,
                       gender: men,
-                      category: categories['Trouser']
+                      category: categories['Trouser'],
+                      material: materials['Cotton']
                       )
 url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1542974404/pantalon-velour-femme-Mango.jpg"
 product3.remote_photo_url = url
