@@ -67,32 +67,32 @@ kids = Gender.create!(name: "Kids")
 
 puts "Creating brands"
 
-north_face = Brand.create(
+north_face = Brand.create!(
             name: "North Face",
             description: "The North Face, Inc. is an American outdoor product company specializing in outerwear, coats, shirts, footwear, and equipment such as backpacks, tents, and sleeping bags.",
             country: "USA",
             rating:2)
-zara = Brand.create(
+zara = Brand.create!(
             name: "Zara",
             description: "Zara is a Spanish fast fashion (clothing and accessories) retailer based in Arteixo (A Coruña) in Galicia.",
             country: "Spain",
             rating:7)
-h_and_m = Brand.create(
+h_and_m = Brand.create!(
             name: "H&M",
             description: "Hennes & Mauritz AB is a Swedish multinational clothing-retail company known for its fast-fashion clothing for men, women, teenagers and children.",
             country: "Sweden",
             rating:9)
-mango = Brand.create(
+mango = Brand.create!(
             name: "Mango",
             description: "MANGO, is a Spanish clothing design and manufacturing company, founded in Barcelona, Catalonia.",
             country: "Spain",
             rating:5)
-uniqlo = Brand.create(
+uniqlo = Brand.create!(
             name: "Uniqlo",
             description: "Uniqlo is a Japanese casual wear designer, manufacturer and retailer.",
             country: "Japan",
             rating:8)
-diesel = Brand.create(
+diesel = Brand.create!(
             name: "Diesel",
             description: "Diesel is an Italian retail clothing company, located in Breganze, Italy. It sells denim, and other clothing, footwear, and accessories.",
             country: "Italia",
@@ -107,13 +107,15 @@ product =  Product.new(
                       brand: zara,
                       gender: men,
                       category: categories['T-shirt'],
-                      material: materials['Polyester']
+                      material: materials['Polyester'],
+                      price: 6,
+                      carbon_footprint: 6_000
                       )
 
 # Product.new( name: "T-SHIRT", description: "T-shirt basique coupe regular avec col rond et manches courtes - 5,95€",water_footprint: 3,carbon_footprint: 5,brand: zara,gender: men,category: categories['T-shirt'])
 url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1542974404/tshirthomme-zara.jpg"
 product.remote_photo_url = url
-product.save
+product.save!
 # https://www.zara.com/fr/fr/t-shirt-basique-coupe-regular-p09240330.html?v1=8188049&v2=1079339
 
 product2 =  Product.new(
@@ -124,11 +126,13 @@ product2 =  Product.new(
                       brand: zara,
                       gender: women,
                       category: categories['Sweater'],
-                      material: materials['Wool']
+                      material: materials['Wool'],
+                      price: 25,
+                      carbon_footprint: 7_000
                       )
 url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1542974404/sweater-femme-uniqlo.jpg"
 product2.remote_photo_url = url
-product2.save
+product2.save!
 # https://www.uniqlo.com/fr/fr/product/sweat-a-capuche-kaws-x-sesame-street-femme-416097.html?dwvar_416097_size=SMA002&dwvar_416097_color=COL69&cgid=IDhooded-sweatshirts1243
 
 product3 =  Product.new(
@@ -139,10 +143,12 @@ product3 =  Product.new(
                       brand: zara,
                       gender: men,
                       category: categories['Trouser'],
-                      material: materials['Cotton']
+                      material: materials['Cotton'],
+                      price: 60,
+                      carbon_footprint: 8_000
                       )
 url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1542974404/pantalon-velour-femme-Mango.jpg"
 product3.remote_photo_url = url
-product3.save
+product3.save!
 # https://shop.mango.com/fr/femme/pantalons/pantalon-flare-velours-cotele_31088805.html?c=09&n=1&s=prendas_she.familia;26,326,22,322
 puts "Created 3 products"
