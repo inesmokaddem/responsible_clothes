@@ -4,6 +4,7 @@ Brand.destroy_all
 Gender.destroy_all
 Category.destroy_all
 Material.destroy_all
+Country.destroy_all
 User.destroy_all
 
 puts "Creating toto user"
@@ -59,6 +60,36 @@ materials_data.each do |material_data|
   materials[material_data[:name]] = Material.create!(material_data)
 end
 
+puts "Creating Countries"
+
+countries_data = [
+  { name: 'Bangladesh', distance: 8000 },
+  { name: 'India', distance: 7400 },
+  { name: 'Vietnam', distance: 10100 },
+  { name: 'China', distance: 8000 },
+  { name: 'Pakistan', distance: 5900 },
+  { name: 'Turkey', distance: 2800 },
+  { name: 'Brazil', distance: 8600 },
+  { name: 'USA', distance: 7700 },
+  { name: 'Korea', distance: 9300 },
+  { name: 'Taiwan', distance: 10100 },
+  { name: 'Indonesia', distance: 11700 },
+  { name: 'Cambodia', distance: 9950 },
+  { name: 'Mexico', distance: 9200 },
+  { name: 'Italy', distance: 1000 },
+  { name: 'Spain', distance: 800 },
+  { name: 'Japan', distance: 9800 },
+  { name: 'Thailand', distance: 9400 },
+  { name: 'Portugal', distance: 1100 },
+  { name: 'France', distance: 0 },
+]
+
+countries = {}
+
+countries_data.each do |country_data|
+  countries[country_data[:name]] = Country.create!(country_data)
+end
+
 puts "Creating Genders"
 
 men = Gender.create!(name: "Men")
@@ -108,6 +139,7 @@ product =  Product.new(
                       gender: men,
                       category: categories['T-shirt'],
                       material: materials['Polyester'],
+                      country: countries['Bangladesh'],
                       price: 6,
                       carbon_footprint: 6_000
                       )
@@ -127,6 +159,7 @@ product2 =  Product.new(
                       gender: women,
                       category: categories['Sweater'],
                       material: materials['Wool'],
+                      country: countries['India'],
                       price: 25,
                       carbon_footprint: 7_000
                       )
@@ -144,6 +177,7 @@ product3 =  Product.new(
                       gender: men,
                       category: categories['Trouser'],
                       material: materials['Cotton'],
+                      country: countries['China'],
                       price: 60,
                       carbon_footprint: 8_000
                       )

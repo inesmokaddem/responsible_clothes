@@ -13,6 +13,8 @@
     <%= f.association :category, prompt: "Choose a Category", input_html: {class:"select2"} %>
     <%= f.association :brand, prompt: "Choose a Brand", input_html: {class:"select2"} %>
     <%= f.association :material, prompt: "Choose a Material", input_html: {class:"select2"} %>
+    <%= f.association :country, prompt: "Choose a Country", input_html: {class:"select2"} %>
+
 
     <%= f.submit 'Create Product', class: "btn btn-primary" %>
   <% end %>
