@@ -1,19 +1,18 @@
-<div class="container">
+<div class="container mt-5">
   <%= simple_form_for @product do |f| %>
-    <h3 class="mt-3">Product info</h3>
+    <h3 class="mt-4">Product info</h3>
     <%= f.input :ean, as: :hidden %>
     <%= f.input :name, placeholder: 'Leather Jacket' %>
     <%= f.input :description, as: :text, placeholder: 'Blue pant in cotton', input_html: { maxlength: 150 } %>
     <%= f.input :price, as: :currency %>
     <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :photo_cache, as: :hidden, input_html: {class:"btn btn-primary"} %>
 
     <%= f.association :gender, as: :radio_buttons, wrapper: :horizontal_collection_inline %>
 
     <%= f.association :category, prompt: "Choose a Category", input_html: {class:"select2"} %>
     <%= f.association :brand, prompt: "Choose a Brand", input_html: {class:"select2"} %>
     <%= f.association :material, prompt: "Choose a Material", input_html: {class:"select2"} %>
-
     <%= f.submit 'Create Product', class: "btn btn-primary" %>
   <% end %>
 </div>
