@@ -9,6 +9,7 @@ User.destroy_all
 
 puts "Creating toto user"
 toto = User.new(email: "toto@toto.com", password: "secret")
+toto.save
 
 puts "Creating Categories"
 
@@ -133,7 +134,7 @@ puts "Creating products"
 product =  Product.new(
                       ean: 1234567,
                       name: "T-SHIRT",
-                      description: "T-shirt basique coupe regular avec col rond et manches courtes - 5,95€",
+                      description: "T-shirt basique coupe regular avec col rond et manches courtes",
                       water_footprint: 0,
                       brand: zara,
                       gender: men,
@@ -153,7 +154,7 @@ product.save!
 product2 =  Product.new(
                       ean: 87654321,
                       name: "Sweater",
-                      description: "Sweat à capuche kaws x Sesame Street femme - 24,90€",
+                      description: "Sweat à capuche kaws x Sesame Street femme",
                       water_footprint: 0,
                       brand: zara,
                       gender: women,
@@ -171,7 +172,7 @@ product2.save!
 product3 =  Product.new(
                       ean: 13245768,
                       name: "Pantalon",
-                      description: "Pantalon flare velours côtelé - 59,99€",
+                      description: "Pantalon flare velours côtelé",
                       water_footprint: 0,
                       brand: zara,
                       gender: men,
@@ -185,4 +186,23 @@ url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1542974404/pant
 product3.remote_photo_url = url
 product3.save!
 # https://shop.mango.com/fr/femme/pantalons/pantalon-flare-velours-cotele_31088805.html?c=09&n=1&s=prendas_she.familia;26,326,22,322
-puts "Created 3 products"
+
+product4 =  Product.new(
+                      ean: 13298468,
+                      name: "Jupe",
+                      description: "jupe crayon taille haute laine mélangée femme - Notre minijupe à carreaux fait bel effet avec un legging. En laine mélangée de belle épaisseur, idéale par temps froid. La doublure permet de l’enfiler facilement.",
+                      water_footprint: 0,
+                      brand: uniqlo,
+                      gender: women,
+                      category: categories['Skirt'],
+                      material: materials['Polyester'],
+                      country: countries['China'],
+                      price: 30,
+                      carbon_footprint: 8_000
+                      )
+url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1543334115/jupe-uniqlo.jpg"
+product4.remote_photo_url = url
+product4.save!
+# https://www.uniqlo.com/fr/fr/product/jupe-crayon-taille-haute-laine-melangee-femme-409971.html?dwvar_409971_size=SMA002&dwvar_409971_color=COL04&cgid=
+
+puts "Created 4 products"
