@@ -3,6 +3,7 @@ import 'slick-carousel';
 import 'slick-carousel/slick/slick.scss'
 
 import '../components/select2';
+import '../components/nouislider-init';
 
 
 $('.slider').slick({
