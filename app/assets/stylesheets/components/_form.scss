@@ -24,7 +24,12 @@ label.collection_radio_buttons {
   justify-content: space-around;
 }
 
-
+::placeholder {
+  color: #e1e1e1 !important;
+}
+.form-control {
+  color: #e1e1e1 !important;
+}
 
 
 
