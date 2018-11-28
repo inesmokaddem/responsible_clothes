@@ -12,6 +12,10 @@
     background-size: cover;
     color: white;
     position: relative;
+    h4 {
+    font-size: 1.2em;
+    font-weight: 600;
+    }
   }
   .card-description {
     position: absolute;
@@ -29,6 +33,9 @@
     &:hover {
       text-decoration: none;
     }
+    .product_price {
+      font-weight: 600;
+    }
   }
 }
 
@@ -42,5 +49,5 @@
     }
     .flex-item:last-child {
     margin-right: 20px;
-    }  
+    }
 }

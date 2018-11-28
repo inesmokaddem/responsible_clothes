@@ -1,4 +1,4 @@
-.footer_btn {
+.tab-bar {
   position: fixed;
   bottom: 0px;
   width: 100%;
@@ -6,8 +6,21 @@
   background-color: $orange;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   p {
     color: #fff;
     font-size: 13px;
+  }
+  .tab:first-child {
+    margin-left: 15px;
+  }
+  .tab:last-child {
+    margin-right: 15px;
+  }
+  .tab-bar-icon {
+    height: 32px;
+  }
+  .tab {
+    margin-top: 5px;
   }
 }
