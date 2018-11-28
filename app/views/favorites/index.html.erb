@@ -1,5 +1,6 @@
 <div class="header">
   <h1>Dressing product list</h1>
+  <p><%= dressing_rating(@products).round(1) %></p>
 </div>
 <% @products.each do |product| %>
   <%= link_to(product_path(product), html_options = { :class => "product-card" }) do %>

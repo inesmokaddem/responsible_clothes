@@ -36,4 +36,8 @@ class Brand < ApplicationRecord
       :success
     end
   end
+
+  def brand_score
+    labor_score + transparency_score
+  end
 end

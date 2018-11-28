@@ -121,10 +121,10 @@ html.search('.ratings-panel .panel.panel-default').each do |brand|
   transparency_answers.delete('no')
   labor_answers.delete('no')
 
-  Brand.new(
+  brand = Brand.new(
     name: name,
-    transparency_answers: transparency_answers,
-    labor_answers: labor_answers
+    transparency_answers: transparency_answers.size,
+    labor_answers: labor_answers.size
   ).save!
 end
 
@@ -147,7 +147,7 @@ product =  Product.new(
                       name: "T-SHIRT",
                       description: "T-shirt basique coupe regular avec col rond et manches courtes",
                       water_footprint: 0,
-                      brand: zara,
+                      brand: Brand.all[rand(0..135)],
                       gender: men,
                       category: categories['T-shirt'],
                       material: materials['Polyester'],
@@ -167,7 +167,7 @@ product2 =  Product.new(
                       name: "Sweater",
                       description: "Sweat à capuche kaws x Sesame Street femme",
                       water_footprint: 0,
-                      brand: zara,
+                      brand: Brand.all[rand(0..135)],
                       gender: women,
                       category: categories['Sweater'],
                       material: materials['Wool'],
@@ -185,7 +185,7 @@ product3 =  Product.new(
                       name: "Pantalon",
                       description: "Pantalon flare velours côtelé",
                       water_footprint: 0,
-                      brand: zara,
+                      brand: Brand.all[rand(0..135)],
                       gender: men,
                       category: categories['Trouser'],
                       material: materials['Cotton'],
@@ -203,7 +203,7 @@ product4 =  Product.new(
                       name: "Jupe",
                       description: "jupe crayon taille haute laine mélangée femme - Notre minijupe à carreaux fait bel effet avec un legging. En laine mélangée de belle épaisseur, idéale par temps froid. La doublure permet de l’enfiler facilement.",
                       water_footprint: 0,
-                      brand: uniqlo,
+                      brand: Brand.all[rand(0..135)],
                       gender: women,
                       category: categories['Skirt'],
                       material: materials['Polyester'],
