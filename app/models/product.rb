@@ -2,6 +2,8 @@ class Product < ApplicationRecord
   before_validation :water_footprint_calculation
   before_validation :carbon_footprint_calculation
 
+  after_validation :global_rating_calculation
+
   mount_uploader :photo, PhotoUploader
 
   monetize :price_cents
@@ -15,6 +17,7 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :material
   belongs_to :country
+
 
   validates :name, presence: true
   validates :description, presence: true
@@ -61,7 +64,7 @@ class Product < ApplicationRecord
   end
 
   def carbon_color
-    case water_footprint
+    case carbon_footprint
     when 1..3000
       :success
     when 3001..7000
@@ -85,7 +88,8 @@ class Product < ApplicationRecord
   end
 
   def product_score
-    ((carbon_score + water_score + brand.brand_score) * 10) / 12
+    byebug
+    ((carbon_score + water_score + brand.brand_score) * 10.0) / 12.0
   end
 
   def water_footprint_calculation
@@ -96,5 +100,9 @@ class Product < ApplicationRecord
   def carbon_footprint_calculation
     cfp_value = country.distance
     self.carbon_footprint = cfp_value
+  end
+
+  def global_rating_calculation
+    self.global_rating = product_score.round(1)
   end
 end

@@ -33,7 +33,7 @@
     <h3><%= @product.brand.name %></h3>
     <p><%= @product.description %></p>
     <h4 class="text-center">Global rating of this product:<h4>
-      <h4 class="text-center"><%= @product.product_score.round(1) %> / 10</h4>
+      <h4 class="text-center"><%= @product.global_rating %> / 10</h4>
     <p>
       <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
     </p>
@@ -160,56 +160,12 @@
   </div>
   <div class="mt-4 equivalent_product">
     <h4 class="text-center">Better alternatives products</h4>
-    <!-- Slider alternative products -->
-    <div class="container">
-      <div class="row">
-        <div id="carousel" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="d-none d-md-block">
-                <div class="slide-box">
-                  <img src="https://picsum.photos/285/200/?image=0&random" alt="First slide">
-                  <img src="https://picsum.photos/285/200/?image=1&random" alt="First slide">
-                  <img src="https://picsum.photos/285/200/?image=2&random" alt="First slide">
-                  <img src="https://picsum.photos/285/200/?image=3&random" alt="First slide">
-                </div>
-              </div>
-              <div class="d-sm-none">
-                <div class="slide-box">
-                  <img src="https://picsum.photos/130/90/?image=3&random" alt="First slide">
-                  <img src="https://picsum.photos/130/90/?image=3&random" alt="First slide">
-                  <img src="https://picsum.photos/130/90/?image=3&random" alt="First slide">
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="d-none d-md-block">
-                <div class="slide-box">
-                  <img src="https://picsum.photos/285/200/?image=4&random" alt="Second slide">
-                  <img src="https://picsum.photos/285/200/?image=5&random" alt="Second slide">
-                  <img src="https://picsum.photos/285/200/?image=6&random" alt="Second slide">
-                  <img src="https://picsum.photos/285/200/?image=7&random" alt="Second slide">
-                </div>
-              </div>
-              <div class="d-sm-none">
-                <div class="slide-box">
-                  <img src="https://picsum.photos/130/90/?image=3&random" alt="Second slide">
-                  <img src="https://picsum.photos/130/90/?image=3&random" alt="Second slide">
-                  <img src="https://picsum.photos/130/90/?image=3&random" alt="Second slide">
-                </div>
-              </div>
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-      </div>
+    <div class="slider">
+      <% @alternatives.each do |product| %>
+        <%= link_to product_path(product), class: "product-card" do %>
+          <%= render "favorites/favorite_product", product: product %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
