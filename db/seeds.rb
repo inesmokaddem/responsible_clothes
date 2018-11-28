@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'nokogiri'
+
 Favorite.destroy_all
 Product.destroy_all
 Brand.destroy_all
@@ -99,36 +102,64 @@ kids = Gender.create!(name: "Kids")
 
 puts "Creating brands"
 
-north_face = Brand.create!(
-            name: "North Face",
-            description: "The North Face, Inc. is an American outdoor product company specializing in outerwear, coats, shirts, footwear, and equipment such as backpacks, tents, and sleeping bags.",
-            country: "USA",
-            rating:2)
-zara = Brand.create!(
-            name: "Zara",
-            description: "Zara is a Spanish fast fashion (clothing and accessories) retailer based in Arteixo (A Coruña) in Galicia.",
-            country: "Spain",
-            rating:7)
-h_and_m = Brand.create!(
-            name: "H&M",
-            description: "Hennes & Mauritz AB is a Swedish multinational clothing-retail company known for its fast-fashion clothing for men, women, teenagers and children.",
-            country: "Sweden",
-            rating:9)
-mango = Brand.create!(
-            name: "Mango",
-            description: "MANGO, is a Spanish clothing design and manufacturing company, founded in Barcelona, Catalonia.",
-            country: "Spain",
-            rating:5)
-uniqlo = Brand.create!(
-            name: "Uniqlo",
-            description: "Uniqlo is a Japanese casual wear designer, manufacturer and retailer.",
-            country: "Japan",
-            rating:8)
-diesel = Brand.create!(
-            name: "Diesel",
-            description: "Diesel is an Italian retail clothing company, located in Breganze, Italy. It sells denim, and other clothing, footwear, and accessories.",
-            country: "Italia",
-            rating:2)
+url = "http://www.notmystyle.org/ratings.html"
+
+html_file = open(url).read
+html = Nokogiri::HTML(html_file)
+
+html.search('.panel.panel-default').each do |brand|
+  name = brand.search('.panel-heading a').children.text
+  answers = brand.search('.answer')
+  transparency_answers = answers.first(9).map! do |answer|
+    answer.text
+  end
+  labor_answers = answers[10..-1].map! do |answer|
+    answer.text
+  end
+
+  transparency_answers.delete('No')
+  transparency = transparency_answers.count * 3 / 9.0
+
+  labor_answers.delete('No')
+  labor = labor_answers.count * 3 / 12.0
+
+  Brand.new(
+    name: name,
+    transparency_score: transparency,
+    labor_score: labor
+  ).save!
+end
+
+# north_face = Brand.create!(
+#             name: "North Face",
+#             description: "The North Face, Inc. is an American outdoor product company specializing in outerwear, coats, shirts, footwear, and equipment such as backpacks, tents, and sleeping bags.",
+#             country: "USA",
+#             rating:2)
+# zara = Brand.create!(
+#             name: "Zara",
+#             description: "Zara is a Spanish fast fashion (clothing and accessories) retailer based in Arteixo (A Coruña) in Galicia.",
+#             country: "Spain",
+#             rating:7)
+# h_and_m = Brand.create!(
+#             name: "H&M",
+#             description: "Hennes & Mauritz AB is a Swedish multinational clothing-retail company known for its fast-fashion clothing for men, women, teenagers and children.",
+#             country: "Sweden",
+#             rating:9)
+# mango = Brand.create!(
+#             name: "Mango",
+#             description: "MANGO, is a Spanish clothing design and manufacturing company, founded in Barcelona, Catalonia.",
+#             country: "Spain",
+#             rating:5)
+# uniqlo = Brand.create!(
+#             name: "Uniqlo",
+#             description: "Uniqlo is a Japanese casual wear designer, manufacturer and retailer.",
+#             country: "Japan",
+#             rating:8)
+# diesel = Brand.create!(
+#             name: "Diesel",
+#             description: "Diesel is an Italian retail clothing company, located in Breganze, Italy. It sells denim, and other clothing, footwear, and accessories.",
+#             country: "Italia",
+#             rating:2)
 
 puts "Creating products"
 product =  Product.new(
