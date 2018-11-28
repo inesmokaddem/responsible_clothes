@@ -100,64 +100,46 @@ men = Gender.create!(name: "Men")
 women = Gender.create!(name: "Women")
 kids = Gender.create!(name: "Kids")
 
-# puts "Creating brands"
-#
-# url = "http://www.notmystyle.org/ratings.html"
-#
-# html_file = open(url).read
-# html = Nokogiri::HTML(html_file)
-#
-# html.search('.ratings-panel .panel.panel-default').each do |brand|
-#   name = brand.search('.panel-heading a').children.text
-#   answers = brand.search('.answer')
-#
-#   transparency_answers = answers.first(9).map do |answer|
-#     answer.text.downcase
-#   end
-#   labor_answers = answers[10..-1].map do |answer|
-#     answer.text.downcase
-#   end
-#
-#   transparency_answers.delete('no')
-#   labor_answers.delete('no')
-#
-#   Brand.new(
-#     name: name,
-#     transparency_answers: transparency_answers,
-#     labor_answers: labor_answers
-#   ).save!
-# end
+puts "Creating brands"
 
-north_face = Brand.create!(
-            name: "North Face",
-            description: "The North Face, Inc. is an American outdoor product company specializing in outerwear, coats, shirts, footwear, and equipment such as backpacks, tents, and sleeping bags.",
-            country: "USA",
-            rating:2)
-zara = Brand.create!(
-            name: "Zara",
-            description: "Zara is a Spanish fast fashion (clothing and accessories) retailer based in Arteixo (A Coruña) in Galicia.",
-            country: "Spain",
-            rating:7)
-h_and_m = Brand.create!(
-            name: "H&M",
-            description: "Hennes & Mauritz AB is a Swedish multinational clothing-retail company known for its fast-fashion clothing for men, women, teenagers and children.",
-            country: "Sweden",
-            rating:9)
-mango = Brand.create!(
-            name: "Mango",
-            description: "MANGO, is a Spanish clothing design and manufacturing company, founded in Barcelona, Catalonia.",
-            country: "Spain",
-            rating:5)
-uniqlo = Brand.create!(
-            name: "Uniqlo",
-            description: "Uniqlo is a Japanese casual wear designer, manufacturer and retailer.",
-            country: "Japan",
-            rating:8)
-diesel = Brand.create!(
-            name: "Diesel",
-            description: "Diesel is an Italian retail clothing company, located in Breganze, Italy. It sells denim, and other clothing, footwear, and accessories.",
-            country: "Italia",
-            rating:2)
+url = "http://www.notmystyle.org/ratings.html"
+
+html_file = open(url).read
+html = Nokogiri::HTML(html_file)
+
+html.search('.ratings-panel .panel.panel-default').each do |brand|
+  name = brand.search('.panel-heading a').children.text
+  answers = brand.search('.answer')
+
+  transparency_answers = answers.first(9).map do |answer|
+    answer.text.downcase
+  end
+  labor_answers = answers[10..-1].map do |answer|
+    answer.text.downcase
+  end
+
+  transparency_answers.delete('no')
+  labor_answers.delete('no')
+
+  brand = Brand.new(
+    name: name,
+    transparency_answers: transparency_answers.size,
+    labor_answers: labor_answers.size
+  ).save!
+end
+
+# north_face = Brand.create!(
+#             name: "North Face")
+# zara = Brand.create!(
+#             name: "Zara")
+# h_and_m = Brand.create!(
+#             name: "H&M")
+# mango = Brand.create!(
+#             name: "Mango")
+# uniqlo = Brand.create!(
+#             name: "Uniqlo")
+# diesel = Brand.create!(
+#             name: "Diesel")
 
 puts "Creating products"
 product =  Product.new(
@@ -165,7 +147,7 @@ product =  Product.new(
                       name: "T-SHIRT",
                       description: "T-shirt basique coupe regular avec col rond et manches courtes",
                       water_footprint: 0,
-                      brand: zara,
+                      brand: Brand.all[rand(0..135)],
                       gender: men,
                       category: categories['T-shirt'],
                       material: materials['Polyester'],
@@ -185,7 +167,7 @@ product2 =  Product.new(
                       name: "Sweater",
                       description: "Sweat à capuche kaws x Sesame Street femme",
                       water_footprint: 0,
-                      brand: zara,
+                      brand: Brand.all[rand(0..135)],
                       gender: women,
                       category: categories['Sweater'],
                       material: materials['Wool'],
@@ -203,7 +185,7 @@ product3 =  Product.new(
                       name: "Pantalon",
                       description: "Pantalon flare velours côtelé",
                       water_footprint: 0,
-                      brand: zara,
+                      brand: Brand.all[rand(0..135)],
                       gender: men,
                       category: categories['Trouser'],
                       material: materials['Cotton'],
@@ -221,7 +203,7 @@ product4 =  Product.new(
                       name: "Jupe",
                       description: "jupe crayon taille haute laine mélangée femme - Notre minijupe à carreaux fait bel effet avec un legging. En laine mélangée de belle épaisseur, idéale par temps froid. La doublure permet de l’enfiler facilement.",
                       water_footprint: 0,
-                      brand: uniqlo,
+                      brand: Brand.all[rand(0..135)],
                       gender: women,
                       category: categories['Skirt'],
                       material: materials['Polyester'],

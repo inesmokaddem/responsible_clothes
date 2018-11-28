@@ -36,15 +36,56 @@ class Product < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
-  def water_score
+  def water_color
     case water_footprint
-    when 1..20000
+    when 1..2000
       :success
-    when 20001..50000
+    when 2001..5000
       :info
-    when 50001..99999999999
+    when 5001..99999999999
       :danger
     end
+  end
+
+  def water_score
+    case water_footprint
+    when 1..2000
+      3
+    when 2001..4000
+      2
+    when 4001..6000
+      1
+    when 6001..99999999999
+      0
+    end
+  end
+
+  def carbon_color
+    case water_footprint
+    when 1..3000
+      :success
+    when 3001..7000
+      :info
+    when 7001..99999999999
+      :danger
+    end
+  end
+
+  def carbon_score
+    case carbon_footprint
+    when 1..2000
+      3
+    when 2001..4000
+      2
+    when 4001..7000
+      1
+    when 7001..99999999999
+      0
+    end
+  end
+
+  def product_score
+    ((carbon_score + water_score + brand.brand_score) * 10) / 12
   end
 
   def water_footprint_calculation

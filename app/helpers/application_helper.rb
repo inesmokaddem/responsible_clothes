@@ -14,4 +14,11 @@ module ApplicationHelper
   def global_rating(ecological_rating, social_rating)
     ecological_rating + social_rating / 2
   end
+
+  def dressing_rating(products)
+    grades = products.map do |product|
+      product.product_score
+    end
+    grades.sum / grades.count
+  end
 end
