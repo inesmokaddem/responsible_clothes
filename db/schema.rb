@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_111852) do
+ActiveRecord::Schema.define(version: 2018_11_28_202323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_111852) do
     t.integer "carbon_footprint"
     t.integer "social_rating"
     t.integer "eco_rating"
-    t.integer "global_rating"
+    t.decimal "global_rating"
     t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

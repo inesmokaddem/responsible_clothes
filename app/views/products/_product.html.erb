@@ -1,11 +1,14 @@
-<%= link_to(product_path(product)) do %>
-  <div class="card-product" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0) -60%, rgba(255, 255, 255, 0) 75%), url('<%= (cl_image_path product.photo) if product.photo.present?  %>');">
-    <div class="card-body">
-      <span class="card-brand"><h4><%= product.brand.name %></span>
+
+<div class="col-6 p-0">
+  <%= link_to(product_path(product)) do %>
+    <div class="card-product" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0) -60%, rgba(255, 255, 255, 0) 75%), url('<%= (cl_image_path product.photo) if product.photo.present?  %>');">
+      <div class="card-body">
+        <span class="card-brand"><h4><%= product.brand.name %></span>
+      </div>
+      <div class="card-footer">
+        <div class="product_name"><%= product.name %></div>
+        <div class="product_price"><%= product.price %> €</div>
+      </div>
     </div>
-    <div class="card-footer">
-      <div class="product_name"><%= product.name %></div>
-      <div class="product_price"><%= product.price %> €</div>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

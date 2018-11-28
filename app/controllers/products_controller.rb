@@ -1,14 +1,19 @@
 class ProductsController < ApplicationController
   def index
-    if params[:query].present?
-      @products = Product.search(params[:query])
-    else
-      @products = Product.all
+    @products = Product.all
+    @products = @products.where(category_id: params[:search][:category_id]) if params.dig(:search, :category_id).present?
+    @products = @products.where(gender_id: params[:search][:gender_id]) if params.dig(:search, :gender_id).present?
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
   def show
     @product = Product.find(params[:id])
+    @alternatives = Product.first(6)
+    # @alternatives = Product.where(category: @product.category, gender: @product.gender).order(global_rating: :desc).first(6)
   end
 
   def new
