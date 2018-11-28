@@ -1,7 +1,7 @@
 <%= link_to(product_path(product)) do %>
-  <div class="card-product" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 20%), url('<%= (cl_image_path product.photo) if product.photo.present?  %>');">
+  <div class="card-product" style="background-image: linear-gradient(-180deg, rgba(0, 0, 0) -60%, rgba(255, 255, 255, 0) 75%), url('<%= (cl_image_path product.photo) if product.photo.present?  %>');">
     <div class="card-body">
-      <span class="card-brand"><%= product.brand.name %></span>
+      <span class="card-brand"><h4><%= product.brand.name %></span>
     </div>
     <div class="card-footer">
       <div class="product_name"><%= product.name %></div>
