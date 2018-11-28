@@ -2,5 +2,5 @@
 meta_product_name: "eTogs"
 meta_title: "eTogs - Scan Your Clothes and See How Sustainable Are They"
 meta_description: "ETogs is THE Scanner that tells you how Sustainable Clothes are. Dress yourself Ethically to support Responsible Brands & take care of the Environment."
-meta_image: "icon@3x.png"                       # should exist in `app/assets/images/`
+meta_image: "cover.jpg"                       # should exist in `app/assets/images/`
 twitter_account: "@eTogs"   # required for Twitter Cards
