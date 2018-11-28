@@ -27,11 +27,6 @@ label.collection_radio_buttons {
 ::placeholder {
   color: #e1e1e1 !important;
 }
-.form-control {
-  color: #e1e1e1 !important;
-}
-
-
 
 input[type="radio"]:checked + label {
   background-color:$orange;
