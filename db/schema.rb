@@ -10,16 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_173156) do
+ActiveRecord::Schema.define(version: 2018_11_28_103652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
-    t.string "description"
-    t.string "country"
-    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "transparency_score"
@@ -79,8 +76,8 @@ ActiveRecord::Schema.define(version: 2018_11_27_173156) do
     t.string "photo"
     t.integer "price"
     t.bigint "material_id"
-    t.integer "price_cents", default: 0, null: false
     t.bigint "country_id"
+    t.integer "price_cents", default: 0, null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["country_id"], name: "index_products_on_country_id"
