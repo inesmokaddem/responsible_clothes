@@ -28,7 +28,9 @@
     </div>
     <h3><%= @product.brand.name %></h3>
     <p><%= @product.description %></p>
-    <p><%= social_share_button_tag(@products, 'data-twitter-title' => 'TheTitleForTwitter') %></p>
+    <p>
+      <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
+    </p>
   </div>
   <div class="rating">
     <h3>Ecological impact</h3>
