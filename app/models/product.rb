@@ -6,6 +6,8 @@ class Product < ApplicationRecord
 
   monetize :price_cents
 
+  default_scope -> { order(name: :asc) }
+
   enum gender: [:women, :men, :child]
   belongs_to :brand
   has_many :favorites
@@ -33,6 +35,7 @@ class Product < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
   def water_score
     case water_footprint
     when 1..20000
@@ -43,6 +46,7 @@ class Product < ApplicationRecord
       :danger
     end
   end
+
   def water_footprint_calculation
     wfp_value = category.weight * material.water_foot_print_per_kilo
     self.water_footprint = wfp_value
@@ -52,6 +56,4 @@ class Product < ApplicationRecord
     cfp_value = country.distance
     self.carbon_footprint = cfp_value
   end
-
-  default_scope -> { order(name: :asc) }
 end

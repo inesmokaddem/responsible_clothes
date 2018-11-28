@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_111852) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.bigint "gender_id"
-    t.integer "ean"
+    t.string "ean"
     t.string "photo"
     t.integer "price"
     t.bigint "material_id"
