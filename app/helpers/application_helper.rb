@@ -16,9 +16,10 @@ module ApplicationHelper
   end
 
   def dressing_rating(products)
+    return nil unless products.any?
     grades = products.map do |product|
       product.product_score
     end
-    grades.sum / grades.count
+    (grades.sum / grades.count).round(1)
   end
 end
