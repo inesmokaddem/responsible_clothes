@@ -88,7 +88,6 @@ class Product < ApplicationRecord
   end
 
   def product_score
-    byebug
     ((carbon_score + water_score + brand.brand_score) * 10.0) / 12.0
   end
 
