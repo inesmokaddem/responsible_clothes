@@ -2,8 +2,8 @@
   <%= simple_form_for :search, url: products_path, method: :get, remote: true do |f| %>
     <%= f.input :category_id, collection: Category.all, prompt: "Choose a Category", input_html: { class:"select2", onchange: "Rails.fire(this.form, 'submit')" } %>
     <%= f.input :gender_id, collection: Gender.all, prompt: "Choose a Gender", input_html: { class:"select2", onchange: "Rails.fire(this.form, 'submit')" } %>
-    <%= f.input :price_min %>
-    <%= f.input :price_max %>
+    <%= f.input :price_min, as: :hidden %>
+    <%= f.input :price_max, as: :hidden %>
     <div id="slider"></div>
 
   <% end %>

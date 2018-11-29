@@ -7,11 +7,11 @@ const maxInput = document.getElementById('search_price_max');
 
 if (slider) {
   noUiSlider.create(slider, {
-      start: [0, 500],
+      start: [0, 20],
       connect: true,
       range: {
           'min': 0,
-          'max': 1000
+          'max': 200
       }
   });
 
