@@ -81,9 +81,9 @@ class Product < ApplicationRecord
     case global_rating
     when 1..4
       :danger
-    when 4..7
+    when 4.1..7
       :info
-    when 7..10
+    when 7.1..10
       :success
     end
   end

@@ -22,4 +22,15 @@ module ApplicationHelper
     end
     (grades.sum / grades.count).round(1)
   end
+
+  def dressing_rating_color(products)
+    case dressing_rating(products)
+    when 1..4
+      :danger
+    when 4.1..7
+      :info
+    when 7.1..10
+      :success
+    end
+  end
 end
