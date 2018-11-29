@@ -1,14 +1,20 @@
 <div class="container">
-  <%= simple_form_for :search, url: products_path, method: :get, remote: true do |f| %>
+  <div class="mt-3">
+    <%= simple_form_for :search, url: products_path, method: :get, remote: true do |f| %>
     <%= f.input :category_id, collection: Category.all, prompt: "Choose a Category", input_html: { class:"select2", onchange: "Rails.fire(this.form, 'submit')" } %>
     <%= f.input :gender_id, collection: Gender.all, prompt: "Choose a Gender", input_html: { class:"select2", onchange: "Rails.fire(this.form, 'submit')" } %>
     <%= f.input :price_min, as: :hidden %>
     <%= f.input :price_max, as: :hidden %>
-    <div id="slider"></div>
+    <div id="slider" class="m-5"></div>
 
-  <% end %>
+    <% end %>
+  </div>
 
-  <%= link_to "Remove filters", products_path, class: "remove-filters d-none" %>
+  <div class="mt-4 text-right">
+    <%= link_to products_path, class: "remove-filters d-none" do %>
+    <%= inline_svg "reload.svg", width: 30 %>
+    <% end %>
+  </div>
   <div class="row" id="product-list">
     <%= render @products %>
   </div>
