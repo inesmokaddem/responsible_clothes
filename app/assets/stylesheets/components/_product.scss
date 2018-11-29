@@ -36,6 +36,12 @@
     .product_price {
       font-weight: 600;
     }
+    .product_name {
+      width: 80px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 20px;
+    }
   }
 }
 
@@ -46,8 +52,25 @@
     align-items: center;
     .flex-item:first-child {
     margin-left: 20px;
+    margin-bottom: 100px;
     }
     .flex-item:last-child {
     margin-right: 20px;
     }
+}
+
+.description_product {
+  .product_name {
+    width: 245px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 40px;
+  }
+  .product-name-line {
+    border-bottom: solid 2px $orange;
+  }
+  h3.product-brand {
+    margin-top: 13px;
+    font-size: 1.3em;
+  }
 }
