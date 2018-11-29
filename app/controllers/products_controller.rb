@@ -3,6 +3,10 @@ class ProductsController < ApplicationController
     @products = Product.all
     @products = @products.where(category_id: params[:search][:category_id]) if params.dig(:search, :category_id).present?
     @products = @products.where(gender_id: params[:search][:gender_id]) if params.dig(:search, :gender_id).present?
+    if params.dig(:search, :price_min).present? && params.dig(:search, :price_max).present?
+      prices_cents = [params[:search][:price_min], params[:search][:price_max]].map { |price| price.to_i.round * 100 }
+    end
+    @products = @products.where(price_cents: prices_cents[0]..prices_cents[1]) if prices_cents
 
     respond_to do |format|
       format.html
