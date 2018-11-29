@@ -4,7 +4,7 @@
     <%= f.input :gender_id, collection: Gender.all, prompt: "Choose a Gender", input_html: { class:"select2", onchange: "Rails.fire(this.form, 'submit')" } %>
     <%= f.input :price_min, as: :hidden %>
     <%= f.input :price_max, as: :hidden %>
-    <div id="slider"></div>
+    <div id="slider" class="m-5"></div>
 
   <% end %>
 
