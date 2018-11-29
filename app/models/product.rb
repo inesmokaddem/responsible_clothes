@@ -29,16 +29,6 @@ class Product < ApplicationRecord
   validates :country, presence: true
   validates :price_cents, presence: true
 
-  include PgSearch
-  pg_search_scope :search,
-    against: [ :name, :price ],
-    associated_against: {
-      brand: [ :name ]
-    },
-    using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
-    }
-
   def water_color
     case water_footprint
     when 1..2000
@@ -84,6 +74,17 @@ class Product < ApplicationRecord
       1
     when 7001..99999999999
       0
+    end
+  end
+
+  def global_color
+    case global_rating
+    when 1..4
+      :danger
+    when 4..7
+      :info
+    when 7..10
+      :success
     end
   end
 

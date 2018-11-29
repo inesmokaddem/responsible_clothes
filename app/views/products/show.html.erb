@@ -32,8 +32,7 @@
     </div>
     <h3 class="product-brand"><%= @product.brand.name %></h3>
     <p><%= @product.description %></p>
-    <h4 class="text-center">Global Rating:<h4>
-      <h4 class="text-center"><%= @product.global_rating %> / 10</h4>
+    <h4 class="text-center">Global Rating: <span class="badge badge-pill badge-<%= @product.global_color %>"><%= @product.global_rating %> / 10</span><h4>
     <p>
       <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
     </p>
