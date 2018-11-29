@@ -22,15 +22,15 @@
     </div>
   </div>
   <div class="description_product">
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center product-name-line">
       <div class="col-6 p-0">
-        <h2 class="text-uppercase"><%= @product.name %></h2>
+        <h2 class="text-uppercase product_name"><%= @product.name %></h2>
       </div>
       <div class="col-6 p-0 text-right">
         <h3><%= @product.price %> €</h3>
       </div>
     </div>
-    <h3><%= @product.brand.name %></h3>
+    <h3 class="product-brand"><%= @product.brand.name %></h3>
     <p><%= @product.description %></p>
     <h4 class="text-center">Global rating of this product:<h4>
       <h4 class="text-center"><%= @product.global_rating %> / 10</h4>

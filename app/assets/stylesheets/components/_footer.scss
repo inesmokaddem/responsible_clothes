@@ -7,20 +7,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .tab.scan, .tab.search, .tab.dressing {
+    width: 120px;
+    height: 65px;
+    .active {
+      background-color: $violet;
+    }
+  }
+
   p {
     color: #fff;
     font-size: 13px;
   }
   .tab:first-child {
-    margin-left: 15px;
+    // margin-left: 15px;
   }
   .tab:last-child {
-    margin-right: 15px;
+    // margin-right: 15px;
   }
   .tab-bar-icon {
     height: 32px;
   }
   .tab {
-    margin-top: 5px;
+    padding-top: 8px;
   }
 }
