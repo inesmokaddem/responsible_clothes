@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <%= simple_form_for @product do |f| %>
-    <h3 class="mt-4">Product info</h3>
+    <h3 class="mt-4">New Product</h3>
     <%= f.input :ean, as: :hidden %>
     <%= f.input :name, placeholder: 'Leather Jacket' %>
     <%= f.input :description, as: :text, placeholder: 'Blue pant in cotton', input_html: { maxlength: 150 } %>
