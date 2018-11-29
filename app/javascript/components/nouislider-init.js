@@ -1,5 +1,6 @@
 import 'nouislider/distribute/nouislider.css';
 import noUiSlider from 'nouislider';
+import wNumb from 'wnumb';
 
 var slider = document.getElementById('slider');
 const minInput = document.getElementById('search_price_min');
@@ -12,6 +13,15 @@ if (slider) {
       range: {
           'min': 0,
           'max': 200
+      },
+      pips: {
+          mode: 'positions',
+          values: [0, 25, 50, 75, 100],
+          density: 4,
+          format: wNumb({
+            decimals: 2,
+            prefix: '€'
+        })
       }
   });
 
