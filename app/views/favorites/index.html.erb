@@ -1,6 +1,6 @@
 <div class="header">
   <h1>My Dressing</h1>
-  <p><%= dressing_rating(@products) %></p>
+  <p><span class="badge badge-pill badge-<%= dressing_rating_color(@products) %>"><%= dressing_rating(@products) %><span> / 10</p>
 </div>
 
 <% @products.each do |product| %>
