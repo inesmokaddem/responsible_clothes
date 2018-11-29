@@ -22,10 +22,6 @@
     width: 64%;
   }
 }
-
-
-
-
 .image-product {
     height: 80px;
     width: 128px;
@@ -43,5 +39,14 @@
   &:hover {
     text-decoration: none;
     color: $orange;
+  }
+}
+.slider {
+  .favorite-card {
+    .favorite-product-text {
+      p {
+        width: 140px;
+      }
+    }
   }
 }
