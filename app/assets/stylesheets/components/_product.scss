@@ -27,9 +27,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    background: white;
+    background: $light-green;
     border-radius: 0;
-    color: $orange;
+    color: #000;
     &:hover {
       text-decoration: none;
     }
@@ -67,7 +67,7 @@
     height: 40px;
   }
   .product-name-line {
-    border-bottom: solid 2px $orange;
+    border-bottom: solid 2px $light-green;
   }
   h3.product-brand {
     margin-top: 13px;

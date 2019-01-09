@@ -15,10 +15,15 @@
   background: $white;
   padding: 10px;
   h4 {
-  color: $brown
+  color: #000;
   }
 }
 
 .arrow_down {
   margin-right: 10px;
+}
+@media (max-width: 1023px) {
+  .collapse-header {
+      overflow-y: auto;
+  }
 }
