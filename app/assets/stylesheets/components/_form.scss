@@ -29,11 +29,11 @@ label.collection_radio_buttons {
 }
 
 input[type="radio"]:checked + label {
-  background-color:$orange;
-  color: #fff;
+  background-color:$light-green;
+  color: #000;
 }
 abbr {
-  color: $orange;
+  color: #c00;
 }
 
 .col-sm-9 {

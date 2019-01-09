@@ -1,9 +1,9 @@
 #slider {
-  border: 2px solid $orange;
+  border: 1px solid #000;
   height: 0px;
   .noUi-horizontal .noUi-handle {
-    width: 35px;
-    height: 30px;
+    width: 27px;
+    height: 24px;
     top: -14px !important;
   }
 }
@@ -13,7 +13,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   top: -14px;
 }
 .noUi-handle:before, .noUi-handle:after {
-  background: $orange !important;
-  width: 9px !important;
-  left: 11px !important;
+  background: #000 !important;
+  width: 4px !important;
+  left: 14px !important;
 }

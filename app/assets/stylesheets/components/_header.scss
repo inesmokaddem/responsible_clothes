@@ -2,14 +2,14 @@
   display: flex;
   height: 67px;
   background-color: $white;
-  border-bottom: 2px solid $orange;
+  border-bottom: 2px solid $light-green;
   margin-left: 16px;
   margin-right: 16px;
   text-transform: uppercase;
   justify-content: space-between;
   h1 {
     font-size: 26px;
-    color: $brown;
+    color: #000;
     justify-content: space-around;
     margin: 0;
     flex: 0 0 auto;
