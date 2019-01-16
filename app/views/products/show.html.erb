@@ -158,8 +158,22 @@
     </div>
   </div>
   <div class="text-center">
-    <button class="btn btn-primary p-1 mt-4" type="button" name="button">Add a review</button>
+    <%= link_to "Add a review", new_product_review_path(@product), class: "btn  btn-primary p-1 mt-4"%>
   </div>
+  <!-- Test stars reviews -->
+  <div class="container">
+    <div id="reviews">
+      <% if @product.reviews.blank? %>
+      Be the first to leave a review for <%= @product.name %>
+      <% else %>
+      <% @product.reviews.each do |review| %>
+      <h2><%= @username %></h2>
+      <%= render 'reviews/show', review: review %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
   <div class="mt-4 equivalent_product">
     <h4 class="text-center">Better alternatives products</h4>
     <div class="slider">

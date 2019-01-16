@@ -29,6 +29,7 @@ class Product < ApplicationRecord
   validates :carbon_footprint, presence: true
   validates :country, presence: true
   validates :price_cents, presence: true
+  validates :stars, inclusion: { in: [1, 2, 3, 4, 5] }
 
   def water_color
     case water_footprint

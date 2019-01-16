@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show, :new, :create], shallow: true do
     resources :favorites, only: [:create]
-    resources :reviews, only: [ :new, :create, :show ]
+    resources :reviews, only: [ :new, :create ]
   end
   resources :scans, only: [:create]
   resources :favorites, only: [:index]
