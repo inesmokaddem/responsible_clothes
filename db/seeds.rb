@@ -9,6 +9,7 @@ Category.destroy_all
 Material.destroy_all
 Country.destroy_all
 User.destroy_all
+Review.destroy_all
 
 puts "Creating toto user"
 toto = User.new(email: "toto@toto.com", password: "secret")
@@ -329,3 +330,11 @@ product11.save!
 
 
 puts "Created products"
+
+review_product = Review.new(
+  product_id: Product.first,
+  content: "cool",
+  stars: rand(1..5)
+)
+
+5.times { review_product.save! }
