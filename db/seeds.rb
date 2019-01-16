@@ -331,10 +331,10 @@ product11.save!
 
 puts "Created products"
 
-review_product = Review.new(
-  product_id: Product.first,
-  content: "cool",
-  stars: rand(1..5)
-)
+# review_product = Review.new(
+#   product_id: Product.first,
+#   content: "cool",
+#   stars: rand(1..5)
+# )
 
 5.times { review_product.save! }
