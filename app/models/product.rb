@@ -29,7 +29,7 @@ class Product < ApplicationRecord
   validates :carbon_footprint, presence: true
   validates :country, presence: true
   validates :price_cents, presence: true
-  validates :stars, inclusion: { in: [1, 2, 3, 4, 5] }
+
 
   def water_color
     case water_footprint
@@ -106,5 +106,12 @@ class Product < ApplicationRecord
 
   def global_rating_calculation
     self.global_rating = product_score.round(1)
+  end
+
+  def average_stars
+    return 0 if self.reviews.size == 0
+
+    stars = self.reviews.map(&:stars)
+   (stars.inject { |sum, el| sum + el }.to_f / stars.size).round
   end
 end

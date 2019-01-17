@@ -313,7 +313,7 @@ product10.save!
 
 product11 =  Product.new(
                       ean: 3124914027391,
-                      name: "Gillet jaune",
+                      name: "Gilet jaune",
                       description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                       water_footprint: 0,
                       brand: Brand.all[rand(0..135)],
@@ -330,11 +330,12 @@ product11.save!
 
 
 puts "Created products"
+5.times { 
+  review_product = Review.new(
+    product: Product.first,
+    content: "cool",
+    stars: rand(1..5)
+  )
+  review_product.save!
 
-# review_product = Review.new(
-#   product_id: Product.first,
-#   content: "cool",
-#   stars: rand(1..5)
-# )
-
-5.times { review_product.save! }
+}
