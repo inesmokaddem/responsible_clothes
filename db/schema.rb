@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_01_16_105443) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "stars"
+    t.string "title"
     t.index ["product_id"], name: "index_reviews_on_product_id"
   end
 

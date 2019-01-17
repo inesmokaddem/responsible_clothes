@@ -33,7 +33,14 @@
     <h3 class="product-brand"><%= @product.brand.name %></h3>
     <p><%= @product.description %></p>
     <h4 class="text-center">Global Rating: <span class="badge badge-pill badge-<%= @product.global_color %>"><%= @product.global_rating %> / 10</span><h4>
-    <h4 class="text-center">Quality Rating:<%= inline_svg("star.svg", width: 50, height: 30, class: "collapse-icon") %></h4>
+    <h4 class="text-center">Quality Rating:
+      <% @product.average_stars.times do %>
+        <%= inline_svg("star.svg", width: 50, height: 30, class: "collapse-icon") %>
+      <% end %>
+      <% (5 - @product.average_stars).times do %>
+        <%= inline_svg("empty_star.svg", width: 50, height: 30, class: "collapse-icon") %>
+      <% end %>
+    </h4>
     <p>
       <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
     </p>
