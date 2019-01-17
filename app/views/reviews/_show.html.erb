@@ -1,5 +1,10 @@
 <div class="reviews_product">
-  <p class="mb-1"><%= review.stars %>
-    <%= inline_svg("star.svg", width: 32, class: "collapse-icon") %></p>
+  <span class="stars_rating"><% review.stars.times do %>
+    <%= inline_svg("star.svg", width: 10, height: 20, class: "collapse-icon") %>
+  <% end %>
+  <% (5 - review.stars).times do %>
+    <%= inline_svg("empty_star.svg", width: 10, height: 20, class: "collapse-icon") %>
+  <% end %>
+  </span>
   <p class="comment"><%= review.content %></p>
 </div>
