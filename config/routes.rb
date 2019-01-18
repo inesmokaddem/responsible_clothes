@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   resources :scans, only: [:create]
   resources :favorites, only: [:index]
+  resources :users, only: [:show, :edit, :update]
 end

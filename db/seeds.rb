@@ -12,7 +12,13 @@ User.destroy_all
 Review.destroy_all
 
 puts "Creating toto user"
-toto = User.new(email: "toto@toto.com", password: "secret")
+toto = User.new(
+  email: "toto@toto.com",
+  password: "secret",
+  first_name: "ines",
+  last_name: "Mokaddem",
+  remote_avatar_url: "https://avatars2.githubusercontent.com/u/45847618?v=4"
+)
 toto.save
 
 puts "Creating Categories"
@@ -330,13 +336,14 @@ product11.save!
 
 
 puts "Created products"
-2.times {
-  review_product = Review.new(
-    product: Product.first,
-    content: "Very good quality, nothing changed after lots of washes.",
-    title: "Good product!",
-    stars: rand(1..5)
-  )
-  review_product.save!
 
-}
+review_product = Review.new(
+  product: Product.first,
+  user: User.first,
+  content: "Very good quality, nothing changed after lots of washes.",
+  title: "Good product!",
+  stars: rand(1..5)
+)
+review_product.save!
+
+puts "Created reviews"

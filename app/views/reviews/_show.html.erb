@@ -1,4 +1,7 @@
 <div class="reviews_product">
+  <!-- avatar exemple -->
+  <%= cl_image_tag review.user.avatar.url(:avatar, secure:true), class: "avatar"   %>
+  <span><%= review.user.first_name  %></span>
   <p class="comment_title mb-0">"<%= review.title %>"
     <span class="review_date"><%= review.created_at.strftime('%d/%m/%Y')  %></span></p>
   <span class="stars_rating"><% review.stars.times do %>
@@ -9,6 +12,6 @@
   <% end %>
   </span>
   <p class="comment"><%= review.content %></p>
-  <!-- add date to my review -->
+
 
 </div>

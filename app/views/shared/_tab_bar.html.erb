@@ -23,4 +23,12 @@
       <p class="mb-0 text-center">Dressing</p>
     <% end %>
   </div>
+  <div class="tab account">
+    <%= link_to(user_path(current_user)) do %>
+      <div class="tab-bar-icon text-center">
+        <%= inline_svg("dressing.svg", width: 32) %>
+      </div>
+      <p class="mb-0 text-center">Account</p>
+    <% end %>
+  </div>
 </footer>
