@@ -1,4 +1,5 @@
 <div class="reviews_product">
+  <p class="comment_title mb-0">"<%= review.title %>"</p>
   <span class="stars_rating"><% review.stars.times do %>
     <%= inline_svg("star.svg", width: 10, height: 20, class: "collapse-icon") %>
   <% end %>

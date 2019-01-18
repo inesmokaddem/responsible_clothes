@@ -330,10 +330,11 @@ product11.save!
 
 
 puts "Created products"
-5.times { 
+2.times {
   review_product = Review.new(
     product: Product.first,
     content: "cool",
+    title: "Good product!",
     stars: rand(1..5)
   )
   review_product.save!

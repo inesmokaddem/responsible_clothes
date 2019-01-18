@@ -175,10 +175,10 @@
         <% if @product.reviews.blank? %>
         Be the first to leave a review for <%= @product.name %>
         <% else %>
-        <% @product.reviews.each do |review| %>
-        <h2><%= @username %></h2>
-        <%= render 'reviews/show', review: review %>
-        <% end %>
+          <% @product.reviews.each do |review| %>
+          <h2><%= @username %></h2>
+          <%= render 'reviews/show', review: review %>
+          <% end %>
         <% end %>
       </div>
       <div class="text-center">
