@@ -11,8 +11,11 @@ class User < ApplicationRecord
   has_many :products, through: :favorites
   validates :first_name, uniqueness: { scope: :last_name }
 
-
   def has_favorited?(product)
     favorites.find_by(product: product).present?
+  end
+
+  def has_reviewed?(product)
+    reviews.any? { |review| review.product == product  }
   end
 end

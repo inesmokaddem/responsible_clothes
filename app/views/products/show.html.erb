@@ -180,7 +180,11 @@
         <% end %>
       </div>
       <div class="text-center">
-        <%= link_to "Add a review", new_product_review_path(@product), class: "btn  btn-primary p-1 mt-4"%>
+        <% if current_user.has_reviewed?(@product) %>
+          <%= link_to "see my review", '#', class: "btn  btn-light p-1 mt-4"%>
+        <% else %>
+          <%= link_to "Add a review", new_product_review_path(@product), class: "btn  btn-primary p-1 mt-4"%>
+        <% end %>
       </div>
     </div>
   </div>
