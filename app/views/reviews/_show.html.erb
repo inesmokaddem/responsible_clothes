@@ -1,4 +1,6 @@
 <div class="reviews_product">
+  <p class="comment_title mb-0">"<%= review.title %>"
+    <span class="review_date"><%= review.created_at.strftime('%d/%m/%Y')  %></span></p>
   <span class="stars_rating"><% review.stars.times do %>
     <%= inline_svg("star.svg", width: 10, height: 20, class: "collapse-icon") %>
   <% end %>
@@ -7,4 +9,6 @@
   <% end %>
   </span>
   <p class="comment"><%= review.content %></p>
+  <!-- add date to my review -->
+
 </div>

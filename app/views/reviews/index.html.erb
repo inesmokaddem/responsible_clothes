@@ -1,0 +1,19 @@
+<div class="rating mt-4">
+  <h3>Customers reviews</h3>
+  <div class="container">
+    <div id="reviews">
+      <%= link_to "", product_reviews_path(@product), class: "reviews_link" %>
+      <% if @product.reviews.blank? %>
+      Be the first to leave a review for <%= @product.name %>
+      <% else %>
+        <% @product.reviews.each do |review| %>
+        <h2><%= @username %></h2>
+        <%= render 'reviews/show', review: review %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="text-center">
+      <%= link_to "Add a review", new_product_review_path(@product), class: "btn  btn-primary p-1 mt-4"%>
+    </div>
+  </div>
+</div>

@@ -41,11 +41,8 @@
         <%= inline_svg("empty_star.svg", width: 20, height: 30, class: "collapse-icon") %>
       <% end %>
       </span>
-
-    <p>
-      <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
-    </p>
   </div>
+  <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
   <div class="rating">
     <h3>Ecological Impact</h3>
     <div class="accordion" id="accordionFirst">
@@ -172,13 +169,14 @@
     <h3>Customers reviews</h3>
     <div class="container">
       <div id="reviews">
+        <%= link_to "", product_reviews_path(@product), class: "reviews_link" %>
         <% if @product.reviews.blank? %>
         Be the first to leave a review for <%= @product.name %>
         <% else %>
-        <% @product.reviews.each do |review| %>
-        <h2><%= @username %></h2>
-        <%= render 'reviews/show', review: review %>
-        <% end %>
+          <% @product.reviews.last(3).each do |review| %>
+          <h2><%= @username %></h2>
+          <%= render 'reviews/show', review: review %>
+          <% end %>
         <% end %>
       </div>
       <div class="text-center">
