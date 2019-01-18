@@ -333,7 +333,7 @@ puts "Created products"
 2.times {
   review_product = Review.new(
     product: Product.first,
-    content: "cool",
+    content: "Very good quality, nothing changed after lots of washes.",
     title: "Good product!",
     stars: rand(1..5)
   )
