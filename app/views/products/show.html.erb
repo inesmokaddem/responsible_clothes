@@ -41,11 +41,8 @@
         <%= inline_svg("empty_star.svg", width: 20, height: 30, class: "collapse-icon") %>
       <% end %>
       </span>
-
-    <p>
-      <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
-    </p>
   </div>
+  <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
   <div class="rating">
     <h3>Ecological Impact</h3>
     <div class="accordion" id="accordionFirst">
