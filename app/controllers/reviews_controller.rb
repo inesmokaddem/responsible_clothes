@@ -1,12 +1,13 @@
 class ReviewsController < ApplicationController
+  before_action :set_product
+
   def new
     # we need @restaurant in our `simple_form_for`
-    @product = Product.find(params[:product_id])
     @review = Review.new
   end
 
   def create
-    @product = Product.find(params[:product_id])
+
     @review = Review.new(review_params)
     # we need `restaurant_id` to asssociate review with corresponding restaurant
     @review.product = Product.find(params[:product_id])
@@ -18,9 +19,17 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def index
+    @reviews =   @product.reviews
+  end
+
   private
 
+  def set_product
+    @product = Product.find(params[:product_id])
+  end
+
   def review_params
-    params.require(:review).permit(:content, :stars)
+    params.require(:review).permit(:content, :stars, :title)
   end
 end
