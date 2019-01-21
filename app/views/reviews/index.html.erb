@@ -13,7 +13,12 @@
       <% end %>
     </div>
     <div class="text-center">
-      <%= link_to "Add a review", new_product_review_path(@product), class: "btn  btn-primary p-1 mt-4"%>
+      <% if current_user.has_reviewed?(@product) %>
+        <%= link_to "see my review", '#', class: "btn  btn-light p-2 mt-4"%>
+      <% else %>
+        <%= link_to "Add a review", new_product_review_path(@product), class: "btn  btn-primary p-1 mt-4"%>
+      <% end %>
     </div>
+    <%= link_to 'Back', :back, class:"btn btn-outline-primary p-2" %>
   </div>
 </div>

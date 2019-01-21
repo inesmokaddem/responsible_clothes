@@ -317,22 +317,6 @@ url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1543503300/muji
 product10.remote_photo_url = url
 product10.save!
 
-product11 =  Product.new(
-                      ean: 3124914027391,
-                      name: "Gilet jaune",
-                      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                      water_footprint: 0,
-                      brand: Brand.all[rand(0..135)],
-                      gender: men,
-                      category: categories['Jacket'],
-                      material: materials['Polyester'],
-                      country: countries['France'],
-                      price: 0.95,
-                      )
-url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1543504316/gillet_jaune.jpg"
-product11.remote_photo_url = url
-product11.save!
-
 
 
 puts "Created products"

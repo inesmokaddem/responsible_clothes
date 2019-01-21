@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div class="description_product">
+  <div class="description_product pb-0">
     <div class="d-flex align-items-center product-name-line">
       <div class="col-6 p-0">
         <h2 class="text-uppercase product_name"><%= @product.name %></h2>
@@ -42,7 +42,9 @@
       <% end %>
       </span>
   </div>
-  <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
+  <div class="p-2">
+    <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
+  </div>
   <div class="rating">
     <h3>Ecological Impact</h3>
     <div class="accordion" id="accordionFirst">
