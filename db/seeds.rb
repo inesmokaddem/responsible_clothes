@@ -12,7 +12,13 @@ User.destroy_all
 Review.destroy_all
 
 puts "Creating toto user"
-toto = User.new(email: "toto@toto.com", password: "secret")
+toto = User.new(
+  email: "toto@toto.com",
+  password: "secret",
+  first_name: "ines",
+  last_name: "Mokaddem",
+  remote_avatar_url: "https://avatars2.githubusercontent.com/u/45847618?v=4"
+)
 toto.save
 
 puts "Creating Categories"
@@ -311,32 +317,17 @@ url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1543503300/muji
 product10.remote_photo_url = url
 product10.save!
 
-product11 =  Product.new(
-                      ean: 3124914027391,
-                      name: "Gilet jaune",
-                      description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                      water_footprint: 0,
-                      brand: Brand.all[rand(0..135)],
-                      gender: men,
-                      category: categories['Jacket'],
-                      material: materials['Polyester'],
-                      country: countries['France'],
-                      price: 0.95,
-                      )
-url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1543504316/gillet_jaune.jpg"
-product11.remote_photo_url = url
-product11.save!
-
 
 
 puts "Created products"
-2.times {
-  review_product = Review.new(
-    product: Product.first,
-    content: "Very good quality, nothing changed after lots of washes.",
-    title: "Good product!",
-    stars: rand(1..5)
-  )
-  review_product.save!
 
-}
+review_product = Review.new(
+  product: Product.first,
+  user: User.first,
+  content: "Very good quality, nothing changed after lots of washes.",
+  title: "Good product!",
+  stars: rand(1..5)
+)
+review_product.save!
+
+puts "Created reviews"

@@ -9,9 +9,10 @@ class ReviewsController < ApplicationController
   def create
 
     @review = Review.new(review_params)
-    # we need `restaurant_id` to asssociate review with corresponding restaurant
+    # we need `product_id` to asssociate review with corresponding review
     @review.product = Product.find(params[:product_id])
-    @review.product = @product
+    @review.user = current_user
+
     if @review.save
       redirect_to product_path(@product)
     else

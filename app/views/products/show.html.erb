@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div class="description_product">
+  <div class="description_product pb-0">
     <div class="d-flex align-items-center product-name-line">
       <div class="col-6 p-0">
         <h2 class="text-uppercase product_name"><%= @product.name %></h2>
@@ -42,7 +42,9 @@
       <% end %>
       </span>
   </div>
-  <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
+  <div class="p-2">
+    <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
+  </div>
   <div class="rating">
     <h3>Ecological Impact</h3>
     <div class="accordion" id="accordionFirst">
@@ -174,13 +176,16 @@
         Be the first to leave a review for <%= @product.name %>
         <% else %>
           <% @product.reviews.last(3).each do |review| %>
-          <h2><%= @username %></h2>
           <%= render 'reviews/show', review: review %>
           <% end %>
         <% end %>
       </div>
       <div class="text-center">
-        <%= link_to "Add a review", new_product_review_path(@product), class: "btn  btn-primary p-1 mt-4"%>
+        <% if current_user.has_reviewed?(@product) %>
+          <%= link_to "see my review", '#', class: "btn  btn-light p-2 mt-4"%>
+        <% else %>
+          <%= link_to "Add a review", new_product_review_path(@product), class: "btn  btn-primary p-1 mt-4"%>
+        <% end %>
       </div>
     </div>
   </div>
