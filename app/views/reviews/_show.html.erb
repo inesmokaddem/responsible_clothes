@@ -1,17 +1,19 @@
-<div class="reviews_product">
+<div class="reviews_product d-flex">
   <!-- avatar exemple -->
-  <%= cl_image_tag review.user.avatar.url(:avatar, secure:true), class: "avatar"   %>
-  <span><%= review.user.first_name  %></span>
-  <p class="comment_title mb-0">"<%= review.title %>"
-    <span class="review_date"><%= review.created_at.strftime('%d/%m/%Y')  %></span></p>
-  <span class="stars_rating"><% review.stars.times do %>
-    <%= inline_svg("star.svg", width: 10, height: 20, class: "collapse-icon") %>
-  <% end %>
-  <% (5 - review.stars).times do %>
-    <%= inline_svg("empty_star.svg", width: 10, height: 20, class: "collapse-icon") %>
-  <% end %>
-  </span>
-  <p class="comment"><%= review.content %></p>
-
-
+  <div class="avatar_bloc mr-3">
+    <%= cl_image_tag review.user.avatar.url(:avatar, secure:true), class: "avatar"   %>
+    <!-- <span><%#= review.user.first_name  %></span> -->
+  </div>
+  <div class="review_bloc">
+    <p class="comment_title mb-0">"<%= review.title %>"</p>
+    <span class="stars_rating"><% review.stars.times do %>
+      <%= inline_svg("star.svg", width: 10, height: 20, class: "collapse-icon") %>
+      <% end %>
+      <% (5 - review.stars).times do %>
+      <%= inline_svg("empty_star.svg", width: 10, height: 20, class: "collapse-icon") %>
+      <% end %>
+      <span class="ml-2 review_date"><%= review.created_at.strftime('%d-%m-%Y')%></span>
+    </span>
+    <p class="comment"><%= review.content %></p>
+  </div>
 </div>

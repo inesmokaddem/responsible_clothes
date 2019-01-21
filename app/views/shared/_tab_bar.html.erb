@@ -1,5 +1,5 @@
-<footer class="tab-bar">
-  <div class="tab scan">
+<footer class="col-12 tab-bar p-0">
+  <div class="col-3 tab scan">
     <%= link_to("/") do %>
       <div class="tab-bar-icon text-center">
         <%= inline_svg("scan.svg", width: 32) %>
@@ -7,7 +7,7 @@
       <p class="mb-0 text-center">Scan</p>
     <% end %>
   </div>
-  <div class="tab search">
+  <div class="col-3 tab search">
     <%= link_to("/products") do %>
       <div class="tab-bar-icon text-center">
         <%= inline_svg("search.svg", width: 32) %>
@@ -15,7 +15,7 @@
       <p class="mb-0 text-center">Search</p>
     <% end %>
   </div>
-  <div class="tab dressing">
+  <div class="col-3 tab dressing">
     <%= link_to("/favorites") do %>
       <div class="tab-bar-icon text-center">
         <%= inline_svg("dressing.svg", width: 32) %>
@@ -23,10 +23,10 @@
       <p class="mb-0 text-center">Dressing</p>
     <% end %>
   </div>
-  <div class="tab account">
+  <div class="col-3 tab account">
     <%= link_to(user_path(current_user)) do %>
       <div class="tab-bar-icon text-center">
-        <%= inline_svg("dressing.svg", width: 32) %>
+        <%= inline_svg("account.svg", width: 32) %>
       </div>
       <p class="mb-0 text-center">Account</p>
     <% end %>
