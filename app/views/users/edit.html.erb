@@ -1,17 +1,17 @@
-<div class="container mt-5 pt-5 text-center avatar_edit">
+<div class="container mt-5 pt-5 avatar_edit">
 
-  <h2 class="mb-4">Edit profile</h2>
+  <h2 class="mb-4 text-center">Edit profile</h2>
   <%= form_for(@user) do |f| %>
   <p>
-    <%= f.label :email %>
+    <%= f.label :email %>:
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :first_name %>
+    <%= f.label :first_name %>:
     <%= f.text_field :first_name %>
   </p>
   <p>
-    <%= f.label :last_name %>
+    <%= f.label :last_name %>:
     <%= f.text_field :last_name %>
   </p>
 
