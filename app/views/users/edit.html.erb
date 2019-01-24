@@ -1,0 +1,42 @@
+<div class="background_profile">
+  <div class="container avatar_edit p-0">
+    <div class="picture_bloc text-center pt-5 pb-5">
+      <%= form_for(@user) do |f| %>
+
+        <% if current_user.avatar.url.present? %> <%= image_tag(current_user.avatar.url, class: 'avatar') %>
+        <%#= f.label :remove_avatar do %>
+        <%#= f.check_box :remove_avatar %>
+        <%# end %>
+        <% end %>
+        <p>
+          <label class="btn-change-avatar p-2 mt-4">
+            Upload new avatar
+            <span style="display:none;">
+              <%= f.file_field :avatar, id: "fileUploader"%>
+            </span>
+          </label>
+        </p>
+
+        <%= f.hidden_field :avatar_cache %>
+    </div>
+    <div class="infos_bloc p-3">
+      <p>
+        <strong><%= f.label :email %>:</strong>
+        <%= f.text_field :email %>
+      </p>
+      <p>
+        <strong><%= f.label :first_name %>:</strong>
+        <%= f.text_field :first_name %>
+      </p>
+      <p>
+        <strong><%= f.label :last_name %>:</strong>
+        <%= f.text_field :last_name %>
+      </p>
+    </div>
+    <div class="text-center">
+      <%= f.submit "Save changes", class: 'btn btn-primary p-2 mt-5' %>
+    </div>
+    <% end %>
+
+  </div>
+</div>

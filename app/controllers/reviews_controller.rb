@@ -21,8 +21,9 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews =   @product.reviews
+    @reviews = @product.reviews
   end
+
 
   private
 

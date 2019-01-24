@@ -240,7 +240,7 @@ product5.save!
 product6 =  Product.new(
                       ean: 7896543234568,
                       name: "Beret Laulhere",
-                      description: "Beret en laine vierge mérinos, taille unique. Il sajuste à toutes les têtes. Le cadeau idéal pour elle et lui.",
+                      description: "Beret en laine vierge mérinos, taille unique. Il s'ajuste à toutes les têtes. Le cadeau idéal pour elle et lui.",
                       water_footprint: 0,
                       brand: Brand.all[rand(0..135)],
                       gender: women,
