@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_product
+  before_action :set_product, only: [:new, :create, :index]
 
   def new
     # we need @restaurant in our `simple_form_for`
@@ -24,6 +24,20 @@ class ReviewsController < ApplicationController
     @reviews = @product.reviews
   end
 
+  def show
+    @review = Review.find(params[:id])
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+
+    redirect_to product_path(@review.product)
+  end
 
   private
 
