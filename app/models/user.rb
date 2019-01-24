@@ -18,4 +18,8 @@ class User < ApplicationRecord
   def has_reviewed?(product)
     reviews.any? { |review| review.product == product  }
   end
+
+  def review(product)
+    reviews.find { |review| review.product == product  }
+  end
 end

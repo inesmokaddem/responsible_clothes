@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="review_container mt-5">
+    <h4 class="text-center mb-3">Add your quality rating for the product and your comment</h4>
+      <p class="mb-1">Click on the stars to rate the article</p>
+    <div class="stars" data-stars="<%= @review.stars ? @review.stars : 1 %>">
+    	<svg height="25" width="23" class="star rating" data-rating="1">
+        <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+      </svg>
+      <svg height="25" width="23" class="star rating" data-rating="2">
+        <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+      </svg>
+      <svg height="25" width="23" class="star rating" data-rating="3">
+        <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+      </svg>
+      <svg height="25" width="23" class="star rating" data-rating="4">
+        <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+      </svg>
+      <svg height="25" width="23" class="star rating" data-rating="5">
+        <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill-rule:nonzero;"/>
+      </svg>
+    </div>
+  <%= simple_form_for [@product, @review] do |f| %>
+
+    <div class="stars_choice">
+      <%= f.input :stars, as: :hidden, input_html: { id: "stars"} %>
+    </div>
+    <div class="comment_form mt-5">
+      <%= f.input :title, :label => "Title", placeholder: 'Disappointed by the quality...' %>
+    </div>
+    <div class="comment_form">
+      <%= f.input :content, :label => "Opinion about the article" %>
+    </div>
+    <div class="d-flex justify-content-between">
+      <%= link_to 'Back', :back, class:"btn btn-light" %>
+
+      <%= f.submit "submit", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+</div>
