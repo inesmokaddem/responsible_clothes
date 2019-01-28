@@ -1,8 +1,8 @@
 .picture_bloc {
   background-color: $light-green;
-  .btn-change-avatar {
-    color: #000;
-    background: #fff;
-    border-radius: 8px;
+}
+.infos_bloc {
+  p {
+    border-bottom: 1px solid grey;
   }
 }
