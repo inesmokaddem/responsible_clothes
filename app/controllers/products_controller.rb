@@ -16,8 +16,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @alternatives = Product.first(6)
-    # @alternatives = Product.where(category: @product.category, gender: @product.gender).order(global_rating: :desc).first(6)
+    # @alternatives = Product.first(6)
+    @alternatives = Product.where(category: @product.category, gender: @product.gender).order(global_rating: :desc).first(6)
   end
 
   def new
