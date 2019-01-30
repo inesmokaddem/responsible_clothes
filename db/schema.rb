@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_28_142425) do
+ActiveRecord::Schema.define(version: 2019_01_30_165656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 2019_01_28_142425) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "weight"
+  end
+
+  create_table "compositions", force: :cascade do |t|
+    t.integer "pourcentage"
+    t.bigint "product_id"
+    t.bigint "material_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["material_id"], name: "index_compositions_on_material_id"
+    t.index ["product_id"], name: "index_compositions_on_product_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -78,7 +88,6 @@ ActiveRecord::Schema.define(version: 2019_01_28_142425) do
     t.bigint "material_id"
     t.bigint "country_id"
     t.integer "price_cents", default: 0, null: false
-    t.integer "pourcent_material"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["country_id"], name: "index_products_on_country_id"
@@ -113,6 +122,8 @@ ActiveRecord::Schema.define(version: 2019_01_28_142425) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "compositions", "materials"
+  add_foreign_key "compositions", "products"
   add_foreign_key "favorites", "products"
   add_foreign_key "favorites", "users"
   add_foreign_key "products", "brands"

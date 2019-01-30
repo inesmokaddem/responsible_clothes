@@ -18,8 +18,8 @@
     <%= f.association :brand, prompt: "Choose a Brand", input_html: {class:"select2"} %>
 
     <div class="add_materials d-flex">
-      <%= f.association :material, label: "Materials", prompt: "Choose a Material", input_html: {class:"select2"} %>
-      <%= f.input :material, label: "Add the %"%>
+      <%= f.association :material, label: "Choose materials and %:", prompt: "Choose a Material", input_html: {class:"select2"} %>
+      <%= f.input :compositions, label: "", placeholder: "Add the %"%>
     </div>
 
     <%= f.association :country, label: "Made in", prompt: "Choose a Country", input_html: {class:"select2"} %>

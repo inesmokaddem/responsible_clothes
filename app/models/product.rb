@@ -18,6 +18,8 @@ class Product < ApplicationRecord
   belongs_to :material
   belongs_to :country
   has_many :reviews, dependent: :destroy
+  has_many :compositions, dependent: :destroy
+
 
 
   validates :name, presence: true
