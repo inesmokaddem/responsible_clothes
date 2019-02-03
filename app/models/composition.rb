@@ -8,4 +8,5 @@ class Composition < ApplicationRecord
       errors.add(:composition, "the total of the composition must be 100%")
     end
   end
+  
 end
