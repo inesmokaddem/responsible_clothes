@@ -56,7 +56,8 @@ end
 puts "Creating Materials"
 
 materials_data = [
-  { name: 'Cotton', water_foot_print_per_kilo: 7000 },
+  { name: 'Cotton', water_foot_print_per_kilo: 5300 },
+  { name: 'Cotton bio', water_foot_print_per_kilo: 2650 },
   { name: 'Linen', water_foot_print_per_kilo: 2050 },
   { name: 'Polyester', water_foot_print_per_kilo: 500 },
   { name: 'Viscose', water_foot_print_per_kilo: 3800 },
