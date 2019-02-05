@@ -22,9 +22,11 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new(ean: params[:ean])
+    2.times { @product.compositions.build }
   end
 
   def create
+
     @product = Product.new(product_params)
     url = 'https://images.unsplash.com/photo-1523199455310-87b16c0eed11?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9fcaaa4eadd5aa31d26098baf3fed030&auto=format&fit=crop&w=1350&q=80'
     @product.remote_photo_url = url if @product.photo.url.nil?
@@ -38,6 +40,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :country, :photo, :photo_cache, :category, :material, :composition, :water_footprint, :carbon_footprint, :brand_id, :gender_id, :category_id, :material_id, :country_id, :ean)
+    params.require(:product).permit(:name, :description, :price, :country, :photo, :photo_cache, :category, :material, :water_footprint, :carbon_footprint, :brand_id, :gender_id, :category_id, :material_id, :country_id, :ean, :compositions_attributes => [:material_id, :percentage])
   end
 end

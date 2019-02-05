@@ -15,10 +15,12 @@ class Product < ApplicationRecord
   has_many :favorites
   belongs_to :gender
   belongs_to :category
-  belongs_to :material
   belongs_to :country
   has_many :reviews, dependent: :destroy
   has_many :compositions, dependent: :destroy
+  has_many :materials, through: :compositions
+
+  accepts_nested_attributes_for :compositions
 
 
 
@@ -31,6 +33,7 @@ class Product < ApplicationRecord
   validates :carbon_footprint, presence: true
   validates :country, presence: true
   validates :price_cents, presence: true
+  validate :composition_cannot_be_lower_than_100
 
 
   def water_color
@@ -92,14 +95,33 @@ class Product < ApplicationRecord
     end
   end
 
+
+
+  def composition_cannot_be_lower_than_100
+    percentages = self.compositions.map(&:percentage)
+    if percentages.inject(0, :+) != 100
+      errors.add(:composition, "the total of the composition must be 100%")
+    end
+  end
+
   def product_score
     ((carbon_score + water_score + brand.brand_score) * 10.0) / 12.0
   end
 
+  # def water_footprint_calculation
+  #   wfp_value = category.weight * material.water_foot_print_per_kilo
+  #   self.water_footprint = wfp_value
+  # end
+
+  # test calcul water footprint
   def water_footprint_calculation
-    wfp_value = category.weight * material.water_foot_print_per_kilo
-    self.water_footprint = wfp_value
+    self.water_footprint = self.compositions.inject(0) do |total, c|
+      total + c.percentage.to_f / 100 * category.weight * c.material.water_foot_print_per_kilo
+    end
+
   end
+  # end test
+
 
   def carbon_footprint_calculation
     cfp_value = country.distance

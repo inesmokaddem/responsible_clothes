@@ -18,9 +18,13 @@
     <%= f.association :brand, prompt: "Choose a Brand", input_html: {class:"select2"} %>
 
     <div class="add_materials d-flex">
-      <%= f.association :material, label: "Choose materials and %:", prompt: "Choose a Material", input_html: {class:"select2"} %>
-      <%= f.input :compositions, label: "", placeholder: "Add the %"%>
+      <%= f.simple_fields_for :compositions do |c| %>
+        <%= render 'composition', composition: c %>
+        <%= c.submit '+', class: "center-wide btn btn-primary", size: 50 %>
+      <% end %>
     </div>
+
+
 
     <%= f.association :country, label: "Made in", prompt: "Choose a Country", input_html: {class:"select2"} %>
 
