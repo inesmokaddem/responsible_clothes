@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new(ean: params[:ean])
-    2.times { @product.compositions.build }
+    @product.compositions.build
   end
 
   def create

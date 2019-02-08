@@ -1,2 +1,12 @@
-<%= composition.association :material, label: "Choose materials and %:", prompt: "Choose a Material", input_html: {class:"select2"} %>
-<%= composition.input :percentage, label: "", placeholder: "Add the %" %>
+<tr>
+  <td>
+    <%= f.input_field :_destroy, as: :hidden %>
+    <%= link_to '-', '#', class: 'remove_record btn btn-danger' %>
+  </td>
+  <td>
+    <%= f.association :material, label: "Choose materials and %:", prompt: "Choose a Material", input_html: {class:"select2"} %>
+  </td>
+  <td>
+    <%= f.input :percentage, label: "", placeholder: "Add the %" %>
+  </td>
+</tr>

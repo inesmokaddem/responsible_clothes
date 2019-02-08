@@ -1,5 +1,6 @@
 <div class="container mt-5">
   <%= simple_form_for @product do |f| %>
+  <%= f.error_notification %>
     <h3 class="mt-4">New Product</h3>
     <%= f.input :ean, as: :hidden %>
     <%= f.input :name, placeholder: 'Leather Jacket' %>
@@ -16,13 +17,22 @@
 
     <%= f.association :category, prompt: "Choose a Category", input_html: {class:"select2"} %>
     <%= f.association :brand, prompt: "Choose a Brand", input_html: {class:"select2"} %>
+     <% if @product.errors.any? %>
+       <ul>
+         <% @product.errors.full_messages.each do |msg| %>
+          <li>* <%= msg %></li>
+         <% end %>
+       </ul>
+    <% end %>
+    <table>
+      <tbody class="add_materials">
+        <%= f.simple_fields_for :compositions do |builder| %>
 
-    <div class="add_materials d-flex">
-      <%= f.simple_fields_for :compositions do |c| %>
-        <%= render 'composition', composition: c %>
-        <%= c.submit '+', class: "center-wide btn btn-primary", size: 50 %>
-      <% end %>
-    </div>
+          <%= render 'composition', f: builder %>
+        <% end %>
+    </tbody>
+  </table>
+    <%= link_to_add_row('+', f, :compositions, class: 'btn btn-success') %>
 
 
 

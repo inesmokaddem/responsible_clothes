@@ -32,7 +32,17 @@
     </div>
     <h3 class="product-brand"><%= @product.brand.name %></h3>
     <p><%= @product.description %></p>
-    <p><strong>Composition: </strong><%= @product.material.name %></p>
+    <p><strong>Composition: </strong></p>
+    <table>
+      <tbody>
+        <% @product.compositions.each do |composition| %>
+          <tr>
+            <td><%= composition.material.name %></td>
+            <td><%= composition.percentage %> %</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <h4 class="text-center">Global Rating: <span class="badge badge-pill badge-<%= @product.global_color %>"><%= @product.global_rating %> / 10</span><h4>
     <h4 class="text-center">Customers Rating:</span>
       <span class="stars_rating"><% @product.average_stars.times do %>
