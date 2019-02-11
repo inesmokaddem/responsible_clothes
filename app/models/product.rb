@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
-  before_validation :water_footprint_calculation
-  before_validation :carbon_footprint_calculation
+  before_validation :remove_empty_composition
+  after_validation :carbon_footprint_calculation
+  after_validation :water_footprint_calculation
 
   after_validation :global_rating_calculation
 
@@ -15,9 +16,13 @@ class Product < ApplicationRecord
   has_many :favorites
   belongs_to :gender
   belongs_to :category
-  belongs_to :material
   belongs_to :country
   has_many :reviews, dependent: :destroy
+  has_many :compositions, dependent: :destroy
+  has_many :materials, through: :compositions
+
+  accepts_nested_attributes_for :compositions, allow_destroy: true, reject_if: proc { |att| att['material'].blank? || att['percentage'].blank? }
+
 
 
   validates :name, presence: true
@@ -29,6 +34,8 @@ class Product < ApplicationRecord
   validates :carbon_footprint, presence: true
   validates :country, presence: true
   validates :price_cents, presence: true
+  validates :compositions, presence: true
+  validate :composition_cannot_be_lower_than_100
 
 
   def water_color
@@ -90,18 +97,46 @@ class Product < ApplicationRecord
     end
   end
 
+
+
+  def composition_cannot_be_lower_than_100
+    unless self.compositions.any? { |composition| composition.percentage.nil? }
+      percentages = self.compositions.map(&:percentage)
+      if percentages.inject(0, :+) != 100
+        errors.add(:compositions, "the total of the composition must be 100%")
+      end
+    end
+  end
+
   def product_score
     ((carbon_score + water_score + brand.brand_score) * 10.0) / 12.0
   end
 
-  def water_footprint_calculation
-    wfp_value = category.weight * material.water_foot_print_per_kilo
-    self.water_footprint = wfp_value
+  # def water_footprint_calculation
+  #   wfp_value = category.weight * material.water_foot_print_per_kilo
+  #   self.water_footprint = wfp_value
+  # end
+
+  def remove_empty_composition
+    compositions.select { |composition| composition.percentage.nil? || composition.material.nil? }.each { |composition| composition.delete  }
   end
 
+  # test calcul water footprint
+  def water_footprint_calculation
+    unless self.compositions.any? { |composition| composition.percentage.nil? } || category.nil?
+      self.water_footprint = self.compositions.inject(0) do |total, c|
+        total + c.percentage.to_f / 100 * category.weight * c.material.water_foot_print_per_kilo
+      end
+    end
+  end
+  # end test
+
+
   def carbon_footprint_calculation
-    cfp_value = country.distance
-    self.carbon_footprint = cfp_value
+    unless country.nil?
+      cfp_value = country.distance
+      self.carbon_footprint = cfp_value
+    end
   end
 
   def global_rating_calculation

@@ -1,20 +1,43 @@
 <div class="container mt-5">
   <%= simple_form_for @product do |f| %>
+  <%= f.error_notification %>
     <h3 class="mt-4">New Product</h3>
     <%= f.input :ean, as: :hidden %>
     <%= f.input :name, placeholder: 'Leather Jacket' %>
     <%= f.input :description, as: :text, placeholder: 'Blue pant in cotton', input_html: { maxlength: 150 } %>
     <%= f.input :price, as: :currency %>
-    <%= f.input :photo, label: "Product picture", input_html: {class:"btn btn-secondary"} %>
-    <%= f.input :photo_cache, as: :hidden, input_html: {class:"btn btn-primary"} %>
+
+    <div class="upload-btn-wrapper">
+      <%= f.input :photo, label: "", input_html: {class:"custom-file-upload"} %>
+      <%= inline_svg("camera.svg", width: 100, height: 60) %>
+      <%= f.input :photo_cache, as: :hidden %>
+    </div>
 
     <%= f.association :gender, as: :radio_buttons, wrapper: :horizontal_collection_inline %>
 
     <%= f.association :category, prompt: "Choose a Category", input_html: {class:"select2"} %>
     <%= f.association :brand, prompt: "Choose a Brand", input_html: {class:"select2"} %>
-    <%= f.association :material, label: "Materials", prompt: "Choose a Material", input_html: {class:"select2"} %>
+     <% if @product.errors.any? %>
+       <ul>
+         <% @product.errors.full_messages.each do |msg| %>
+          <li>* <%= msg %></li>
+         <% end %>
+       </ul>
+    <% end %>
+    <table>
+      <tbody class="add_materials">
+        <%= f.simple_fields_for :compositions do |builder| %>
+
+          <%= render 'composition', f: builder %>
+        <% end %>
+    </tbody>
+  </table>
+    <%= link_to_add_row('+', f, :compositions, class: 'btn btn-success') %>
+
+
+
     <%= f.association :country, label: "Made in", prompt: "Choose a Country", input_html: {class:"select2"} %>
 
-    <%= f.submit 'Create Product', class: "center-wide btn btn-primary" %>
+    <%= f.submit 'Create Product', class: "center-wide btn btn-primary", size: 50 %>
   <% end %>
 </div>
