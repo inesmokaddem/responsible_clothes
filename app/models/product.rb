@@ -21,7 +21,9 @@ class Product < ApplicationRecord
   has_many :compositions, dependent: :destroy
   has_many :materials, through: :compositions
 
-  accepts_nested_attributes_for :compositions, allow_destroy: true, reject_if: proc { |att| att['material'].blank? || att['percentage'].blank? }
+  accepts_nested_attributes_for :compositions, allow_destroy: true
+
+  # , reject_if: proc { |att| att['material'].blank? || att['percentage'].blank? }
 
 
 
@@ -109,7 +111,7 @@ class Product < ApplicationRecord
   end
 
   def product_score
-    ((carbon_score + water_score + brand.brand_score) * 10.0) / 12.0
+    ((carbon_score + water_score.to_i + brand.brand_score) * 10.0) / 12.0
   end
 
   # def water_footprint_calculation
