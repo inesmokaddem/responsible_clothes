@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   before_validation :remove_empty_composition
-  after_validation :carbon_footprint_calculation
-  after_validation :water_footprint_calculation
+  before_validation :carbon_footprint_calculation
+  before_validation :water_footprint_calculation
 
   after_validation :global_rating_calculation
 
@@ -22,7 +22,6 @@ class Product < ApplicationRecord
   has_many :materials, through: :compositions
 
   accepts_nested_attributes_for :compositions, allow_destroy: true
-
   # , reject_if: proc { |att| att['material'].blank? || att['percentage'].blank? }
 
 
