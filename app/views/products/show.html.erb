@@ -32,7 +32,7 @@
     </div>
     <h3 class="product-brand"><%= @product.brand.name %></h3>
     <p><%= @product.description %></p>
-    <p><strong>Composition: </strong></p>
+    <p class="mb-0"><strong>Composition: </strong></p>
     <table>
       <tbody>
         <% @product.compositions.each do |composition| %>
@@ -43,7 +43,7 @@
         <% end %>
       </tbody>
     </table>
-    <h4 class="text-center">Global Rating: <span class="badge badge-pill badge-<%= @product.global_color %>"><%= @product.global_rating %> / 10</span><h4>
+    <h4 class="text-center mt-2">Global Rating: <span class="badge badge-pill badge-<%= @product.global_color %>"><%= @product.global_rating %> / 10</span><h4>
     <h4 class="text-center">Customers Rating:</span>
       <span class="stars_rating"><% @product.average_stars.times do %>
         <%= inline_svg("star.svg", width: 20, height: 30, class: "collapse-icon") %>
