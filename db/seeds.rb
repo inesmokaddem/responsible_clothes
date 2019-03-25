@@ -161,7 +161,6 @@ product =  Product.new(
                       brand: Brand.all[rand(0..135)],
                       gender: men,
                       category: categories['T-shirt'],
-                      material: materials['Polyester'],
                       country: countries['Bangladesh'],
                       price: 6,
                       )
@@ -179,9 +178,7 @@ product2 =  Product.new(
                       water_footprint: 0,
                       brand: Brand.all[rand(0..135)],
                       gender: women,
-                      category: categories['Sweater'],
-                      material: materials['Wool'],
-                      country: countries['India'],
+                      category: categories['Sweater'],               country: countries['India'],
                       price: 25,
                       )
 url = "https://res.cloudinary.com/be-better-hotels/image/upload/v1542974404/sweater-femme-uniqlo.jpg"
@@ -197,7 +194,6 @@ product3 =  Product.new(
                       brand: Brand.all[rand(0..135)],
                       gender: men,
                       category: categories['Trouser'],
-                      material: materials['Cotton'],
                       country: countries['China'],
                       price: 60,
                       )
@@ -214,7 +210,6 @@ product4 =  Product.new(
                       brand: Brand.all[rand(0..135)],
                       gender: women,
                       category: categories['Skirt'],
-                      material: materials['Polyester'],
                       country: countries['China'],
                       price: 30,
                       )
@@ -230,7 +225,6 @@ product5 =  Product.new(
                       brand: Brand.all[rand(0..135)],
                       gender: women,
                       category: categories['Dress'],
-                      material: materials['Polyester'],
                       country: countries['Japan'],
                       price: 200,
                       )
@@ -246,7 +240,6 @@ product6 =  Product.new(
                       brand: Brand.all[rand(0..135)],
                       gender: women,
                       category: categories['Hat'],
-                      material: materials['Wool'],
                       country: countries['France'],
                       price: 70,
                       )
@@ -262,7 +255,6 @@ product7 =  Product.new(
                       brand: Brand.all[rand(0..135)],
                       gender: women,
                       category: categories['Jacket'],
-                      material: materials['Polyester'],
                       country: countries['Cambodia'],
                       price: 84.95,
                       )
@@ -278,7 +270,6 @@ product8 =  Product.new(
                       brand: Brand.all[rand(0..135)],
                       gender: kids,
                       category: categories['Pyjama'],
-                      material: materials['Cotton'],
                       country: countries['USA'],
                       price: 19.95,
                       )
@@ -294,7 +285,6 @@ product9 =  Product.new(
                       brand: Brand.all[rand(0..135)],
                       gender: men,
                       category: categories['Jeans'],
-                      material: materials['Cotton'],
                       country: countries['Vietnam'],
                       price: 99.95,
                       )
@@ -310,7 +300,6 @@ product10 =  Product.new(
                       brand: Brand.all[rand(0..135)],
                       gender: men,
                       category: categories['Socks'],
-                      material: materials['Cotton'],
                       country: countries['Japan'],
                       price: 4.95,
                       )
@@ -321,6 +310,26 @@ product10.save!
 
 
 puts "Created products"
+
+puts "Creating compositions"
+
+
+composition_data = [
+  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
+]
+
+Composition.create!(composition_data)
+
+puts "Created compositions"
 
 review_product = Review.new(
   product: Product.first,

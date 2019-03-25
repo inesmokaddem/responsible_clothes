@@ -35,7 +35,6 @@ class Product < ApplicationRecord
   validates :carbon_footprint, presence: true
   validates :country, presence: true
   validates :price_cents, presence: true
-  validates :compositions, presence: true
   validate :composition_cannot_be_lower_than_100
 
 
@@ -108,6 +107,16 @@ class Product < ApplicationRecord
       end
     end
   end
+  # def composition_cannot_be_lower_than_100
+  #   percentage_array = []
+  #   self.compositions.each do |composition|
+  #     percentage_array << composition.percentage
+  #   end
+  #   if percentage_array.reduce(&:+) != 100
+  #    errors.add(:compositions, "the total of the composition must be 100%")
+  #   end
+  # end
+
 
   def product_score
     ((carbon_score + water_score.to_i + brand.brand_score) * 10.0) / 12.0
