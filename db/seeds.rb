@@ -315,16 +315,16 @@ puts "Creating compositions"
 
 
 composition_data = [
-  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
-  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
-  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
-  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
-  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
-  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
-  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
-  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
-  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
-  { percentage: 50, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 100, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 100, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 100, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 100, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 100, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 100, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 100, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 100, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 100, material: Material.all.sample, product: Product.all.sample },
+  { percentage: 100, material: Material.all.sample, product: Product.all.sample },
 ]
 
 Composition.create!(composition_data)
