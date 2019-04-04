@@ -97,6 +97,7 @@ countries_data = [
   { name: 'Thailand', distance: 9400 },
   { name: 'Portugal', distance: 1100 },
   { name: 'France', distance: 200 },
+  { name: 'Slovakia', distance: 1766 },
 ]
 
 countries = {}
