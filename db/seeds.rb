@@ -67,10 +67,6 @@ materials_data = [
   { name: 'Leather', water_foot_print_per_kilo: 13000 },
   { name: 'Nylon', water_foot_print_per_kilo: 3550 },
   { name: 'Acrylic', water_foot_print_per_kilo: 200 },
-  { name: 'Lyocell', water_foot_print_per_kilo: 0 },
-  { name: 'Cashmire', water_foot_print_per_kilo: 200 },
-  { name: 'Elastane', water_foot_print_per_kilo: 200 },
-  { name: 'Modal', water_foot_print_per_kilo: 200 },
 ]
 
 materials = {}
