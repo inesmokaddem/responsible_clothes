@@ -8,7 +8,7 @@ require 'nokogiri'
 # Category.destroy_all
 # Material.destroy_all
 # Country.destroy_all
-# User.destroy_all
+User.destroy_all
 # Review.destroy_all
 
 puts "Creating toto user"
