@@ -340,13 +340,13 @@ puts "Created products"
 #
 # puts "Created compositions"
 
-review_product = Review.new(
-  product: Product.first,
-  user: User.first,
-  content: "Very good quality, nothing changed after lots of washes.",
-  title: "Good product!",
-  stars: rand(1..5)
-)
-review_product.save!
-
-puts "Created reviews"
+# review_product = Review.new(
+#   product: Product.first,
+#   user: User.first,
+#   content: "Very good quality, nothing changed after lots of washes.",
+#   title: "Good product!",
+#   stars: rand(1..5)
+# )
+# review_product.save!
+#
+# puts "Created reviews"
