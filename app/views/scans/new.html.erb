@@ -18,7 +18,7 @@
     }).then(function(barcodePicker) {
       picker = barcodePicker;
       const scanSettings = new ScanditSDK.ScanSettings({
-        enabledSymbologies: ["ean8", "ean13"],
+        enabledSymbologies: ["ean8", "ean13", "code128", "code39", "Interleaved-2-of-5", "Datamatrix"],
         codeDuplicateFilter: 1000
       });
       picker.applyScanSettings(scanSettings);
