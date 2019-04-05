@@ -8,18 +8,18 @@ require 'nokogiri'
 # Category.destroy_all
 # Material.destroy_all
 # Country.destroy_all
-User.destroy_all
+# User.destroy_all
 # Review.destroy_all
 
-puts "Creating toto user"
-toto = User.new(
-  email: "toto@toto.com",
-  password: "secret",
-  first_name: "ines",
-  last_name: "Mokaddem",
-  remote_avatar_url: "https://avatars2.githubusercontent.com/u/45847618?v=4"
-)
-toto.save
+# puts "Creating toto user"
+# toto = User.new(
+#   email: "toto@toto.com",
+#   password: "secret",
+#   first_name: "ines",
+#   last_name: "Mokaddem",
+#   remote_avatar_url: "https://avatars2.githubusercontent.com/u/45847618?v=4"
+# )
+# toto.save
 
 puts "Creating Categories"
 
