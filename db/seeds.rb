@@ -1,15 +1,15 @@
 require 'open-uri'
 require 'nokogiri'
 
-# Favorite.destroy_all
-# Product.destroy_all
-# Brand.destroy_all
-# Gender.destroy_all
-# Category.destroy_all
-# Material.destroy_all
-# Country.destroy_all
-# User.destroy_all
-# Review.destroy_all
+Favorite.destroy_all
+Product.destroy_all
+Brand.destroy_all
+Gender.destroy_all
+Category.destroy_all
+Material.destroy_all
+Country.destroy_all
+User.destroy_all
+Review.destroy_all
 
 # puts "Creating toto user"
 # toto = User.new(
