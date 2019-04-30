@@ -4,7 +4,7 @@
     <div id="reviews">
       <%= link_to "", product_reviews_path(@product), class: "reviews_link" %>
       <% if @product.reviews.blank? %>
-      Be the first to leave a review for <%= @product.name %>
+      Soyez le premier à laisser un commentaire pour le produit <%= @product.name %>
       <% else %>
         <% @product.reviews.each do |review| %>
         <h2><%= @username %></h2>

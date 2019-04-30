@@ -1,15 +1,15 @@
 require 'open-uri'
 require 'nokogiri'
 
-Favorite.destroy_all
-Product.destroy_all
-Brand.destroy_all
-Gender.destroy_all
-Category.destroy_all
-Material.destroy_all
-Country.destroy_all
-User.destroy_all
-Review.destroy_all
+# Favorite.destroy_all
+# Product.destroy_all
+# Brand.destroy_all
+# Gender.destroy_all
+# Category.destroy_all
+# Material.destroy_all
+# Country.destroy_all
+# User.destroy_all
+# Review.destroy_all
 
 # puts "Creating toto user"
 # toto = User.new(
@@ -24,27 +24,27 @@ Review.destroy_all
 puts "Creating Categories"
 
 categories_data = [
-  { name: 'Dress', weight: 0.35 },
+  { name: 'Robe', weight: 0.35 },
   { name: 'T-shirt', weight: 0.3 },
   { name: 'Blouse', weight: 0.3 },
   { name: 'Blazer', weight: 0.5 },
   { name: 'Sweatshirt', weight: 0.4 },
-  { name: 'Sweater', weight: 0.4 },
+  { name: 'Pull', weight: 0.4 },
   { name: 'Jacket', weight: 0.8 },
-  { name: 'Trouser', weight: 0.5 },
+  { name: 'Pantalon', weight: 0.5 },
   { name: 'Jeans', weight: 0.7 },
-  { name: 'Jumpsuit', weight: 0.6 },
-  { name: 'Skirt', weight: 0.3 },
+  { name: 'Combinaison', weight: 0.6 },
+  { name: 'Jupe', weight: 0.3 },
   { name: 'Short', weight: 0.3 },
-  { name: 'Swimwear', weight: 0.2 },
-  { name: 'Coat', weight: 1.2 },
-  { name: 'Shirt', weight: 0.25 },
+  { name: 'Maillot de bain', weight: 0.2 },
+  { name: 'Manteau', weight: 1.2 },
+  { name: 'Chemise', weight: 0.25 },
   { name: 'Underwear', weight: 0.1 },
-  { name: 'Gloves', weight: 0.1 },
+  { name: 'Gants', weight: 0.1 },
   { name: 'Legging', weight: 0.3 },
-  { name: 'Hat', weight: 0.2 },
+  { name: 'Chapeau', weight: 0.2 },
   { name: 'Pyjama', weight: 0.5 },
-  { name: 'Socks', weight: 0.1 },
+  { name: 'Chaussettes', weight: 0.1 },
 ]
 
 categories = {}
@@ -56,17 +56,17 @@ end
 puts "Creating Materials"
 
 materials_data = [
-  { name: 'Cotton', water_foot_print_per_kilo: 5300 },
-  { name: 'Cotton bio', water_foot_print_per_kilo: 2650 },
-  { name: 'Linen', water_foot_print_per_kilo: 2050 },
+  { name: 'Coton', water_foot_print_per_kilo: 5300 },
+  { name: 'Coton bio', water_foot_print_per_kilo: 2650 },
+  { name: 'Lin', water_foot_print_per_kilo: 2050 },
   { name: 'Polyester', water_foot_print_per_kilo: 500 },
   { name: 'Viscose', water_foot_print_per_kilo: 3800 },
-  { name: 'Wool', water_foot_print_per_kilo: 2250 },
+  { name: 'Laine', water_foot_print_per_kilo: 2250 },
   { name: 'Silk', water_foot_print_per_kilo: 35000 },
   { name: 'Polyamide', water_foot_print_per_kilo: 500 },
-  { name: 'Leather', water_foot_print_per_kilo: 13000 },
+  { name: 'Cuir', water_foot_print_per_kilo: 13000 },
   { name: 'Nylon', water_foot_print_per_kilo: 3550 },
-  { name: 'Acrylic', water_foot_print_per_kilo: 200 },
+  { name: 'Acrylique', water_foot_print_per_kilo: 200 },
 ]
 
 materials = {}
@@ -79,26 +79,26 @@ puts "Creating Countries"
 
 countries_data = [
   { name: 'Bangladesh', distance: 8000 },
-  { name: 'India', distance: 7400 },
+  { name: 'Inde', distance: 7400 },
   { name: 'Vietnam', distance: 10100 },
-  { name: 'China', distance: 8000 },
+  { name: 'Chine', distance: 8000 },
   { name: 'Pakistan', distance: 5900 },
-  { name: 'Turkey', distance: 2800 },
-  { name: 'Brazil', distance: 8600 },
+  { name: 'Turquie', distance: 2800 },
+  { name: 'Brésil', distance: 8600 },
   { name: 'USA', distance: 7700 },
-  { name: 'Korea', distance: 9300 },
+  { name: 'Corée', distance: 9300 },
   { name: 'Taiwan', distance: 10100 },
-  { name: 'Indonesia', distance: 11700 },
-  { name: 'Cambodia', distance: 9950 },
-  { name: 'Mexico', distance: 9200 },
-  { name: 'Italy', distance: 1000 },
-  { name: 'Spain', distance: 800 },
-  { name: 'Japan', distance: 9800 },
-  { name: 'Thailand', distance: 9400 },
+  { name: 'Indonésie', distance: 11700 },
+  { name: 'Cambodge', distance: 9950 },
+  { name: 'Mexique', distance: 9200 },
+  { name: 'Italie', distance: 1000 },
+  { name: 'Espagne', distance: 800 },
+  { name: 'Japon', distance: 9800 },
+  { name: 'Thailande', distance: 9400 },
   { name: 'Portugal', distance: 1100 },
   { name: 'France', distance: 200 },
-  { name: 'Slovakia', distance: 1766 },
-  { name: 'Morocco', distance: 2300 },
+  { name: 'Slovaquie', distance: 1766 },
+  { name: 'Maroc', distance: 2300 },
 ]
 
 countries = {}
@@ -112,6 +112,8 @@ puts "Creating Genders"
 men = Gender.create!(name: "Men")
 women = Gender.create!(name: "Women")
 kids = Gender.create!(name: "Kids")
+
+# Change this part to create own seed for brands and our rating for brands
 
 puts "Creating brands"
 
@@ -140,6 +142,24 @@ html.search('.ratings-panel .panel.panel-default').each do |brand|
     labor_answers: labor_answers.size
   ).save!
 end
+
+# Accords Bangladesh
+
+# url = https://bangladeshaccord.org/signatories
+#
+# html_file = open(url).read
+# html = Nokogiri::HTML(html_file)
+#
+# html.search('.infinite-scroll-component .sc-RmnOB').each do |brand|
+#   name = brand.search('.sc-MYvYT .sc-jPPmml span').children.text
+#
+#   end
+#
+#   brand = Brand.new(
+#     name: name,
+#   ).save!
+
+
 
 # north_face = Brand.create!(
 #             name: "North Face")
