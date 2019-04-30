@@ -1,10 +1,10 @@
 <div class="container mt-5">
   <%= simple_form_for @product do |f| %>
   <%= f.error_notification %>
-    <h3 class="mt-4">New Product</h3>
+    <h3 class="mt-4">Nouveau produit</h3>
     <%= f.input :ean, as: :hidden %>
-    <%= f.input :name, placeholder: 'Leather Jacket' %>
-    <%= f.input :description, as: :text, placeholder: 'Blue pant in cotton', input_html: { maxlength: 150 } %>
+    <%= f.input :name, placeholder: 'Pantalon coton' %>
+    <%= f.input :description, as: :text, placeholder: 'Pantalon bleu en coton bio, toucher doux et confortable', input_html: { maxlength: 150 } %>
     <%= f.input :price, as: :currency %>
 
     <div class="upload-btn-wrapper">
@@ -15,8 +15,8 @@
 
     <%= f.association :gender, as: :radio_buttons, wrapper: :horizontal_collection_inline %>
 
-    <%= f.association :category, prompt: "Choose a Category", input_html: {class:"select2"} %>
-    <%= f.association :brand, prompt: "Choose a Brand", input_html: {class:"select2"} %>
+    <%= f.association :category, prompt: "Choisir une catégorie", input_html: {class:"select2"} %>
+    <%= f.association :brand, prompt: "Choisir une marque", input_html: {class:"select2"} %>
      <% if @product.errors.any? %>
        <ul>
          <% @product.errors.full_messages.each do |msg| %>
@@ -32,12 +32,12 @@
         <% end %>
     </tbody>
   </table>
-    <%= link_to_add_row('Add other material', f, :compositions, class: 'btn btn-success') %>
+    <%= link_to_add_row('Ajout d\'une matière', f, :compositions, class: 'btn btn-success') %>
 
 
 
-    <%= f.association :country, label: "Made in", prompt: "Choose a Country", input_html: {class:"select2"} %>
+    <%= f.association :country, label: "Made in", prompt: "Choisir un pays", input_html: {class:"select2"} %>
 
-    <%= f.submit 'Create Product', class: "center-wide btn btn-primary", size: 50 %>
+    <%= f.submit 'Créer le produit', class: "center-wide btn btn-primary", size: 50 %>
   <% end %>
 </div>

@@ -43,8 +43,8 @@
         <% end %>
       </tbody>
     </table>
-    <h4 class="text-center mt-2">Global Rating: <span class="badge badge-pill badge-<%= @product.global_color %>"><%= @product.global_rating %> / 10</span><h4>
-    <h4 class="text-center">Customers Rating:</span>
+    <h4 class="text-center mt-2">Note globale: <span class="badge badge-pill badge-<%= @product.global_color %>"><%= @product.global_rating %> / 10</span><h4>
+    <h4 class="text-center">Note des consommateurs:
       <span class="stars_rating"><% @product.average_stars.times do %>
         <%= inline_svg("star.svg", width: 20, height: 30, class: "collapse-icon") %>
       <% end %>
@@ -52,12 +52,13 @@
         <%= inline_svg("empty_star.svg", width: 20, height: 30, class: "collapse-icon") %>
       <% end %>
       </span>
+    </h4>
   </div>
   <div class="p-2">
     <%= social_share_button_tag(@product, :href => product_path(@product), desc: @product.name, :allow_sites => %w(twitter facebook pinterest)) %>
   </div>
   <div class="rating">
-    <h3>Ecological Impact</h3>
+    <h3>Impact écologique</h3>
     <div class="accordion" id="accordionFirst">
 
       <div class="water_footprint">
@@ -66,7 +67,7 @@
             <div class="icons">
               <%= inline_svg("water_icon.svg", width: 32, class: "collapse-icon") %>
             </div>
-            Water footprint
+            Impact eau
           </div>
           <div class="d-flex align-items-center">
             <%= @product.water_footprint %> ℓ
@@ -79,7 +80,7 @@
 
         <div id="collapseOne" class="collapse">
           <div class="collapse-body">
-            <p>It took more than <%= @product.water_footprint %>ℓ of water to make this product</p>
+            <p>Il a fallu plus de <%= @product.water_footprint %>ℓ d'eau nécessaire pour fabriquer ce produit.</p>
           </div>
         </div>
       </div>
@@ -90,7 +91,7 @@
             <div class="icons">
               <%= inline_svg("plane.svg", width: 32, class: "collapse-icon") %>
             </div>
-            Carbon footprint
+            Impact carbone
           </div>
           <div class="d-flex align-items-center">
             <%= @product.carbon_footprint %> Km
@@ -103,8 +104,8 @@
 
         <div id="collapseTwo" class="collapse">
           <div class="collapse-body">
-            <p>Your product has travelled more than <%= @product.carbon_footprint %>km</p>
-            <p>Your product was made in <strong><%= @product.country.name %></strong></p>
+            <p>Votre produit a voyagé plus de <%= @product.carbon_footprint %>km</p>
+            <p>Pays de fabrication de ce produit : <strong><%= @product.country.name %></strong></p>
           </div>
         </div>
       </div>
@@ -112,7 +113,7 @@
   </div>
 
   <div class="mt-4 rating">
-    <h3>Social Responsibility</h3>
+    <h3>Responsibilité sociale de la marque</h3>
     <div class="accordion" id="accordionSecond">
       <div class="labour_conditions">
         <a class="collapse-header" data-toggle="collapse" data-target="#collapseThree" href="#collapseThree">
@@ -120,7 +121,7 @@
             <div class="icons">
               <%= inline_svg("labour.svg", width: 20, class: "collapse-icon") %>
             </div>
-            Labour conditions
+            Conditions de travail
           </div>
           <div class="d-flex align-items-center">
             <div class="mx-2 circle circle-<%= @product.brand.labor_color %>"></div>
@@ -132,13 +133,21 @@
 
         <div id="collapseThree" class="collapse">
           <div class="collapse-body">
-            <p><strong><%= @product.brand.name %> got <%= @product.brand.labor_answers %> YES about labor conditions.</strong></p>
-            <h4>Monitored parameters:</h4>
+            <p><strong><%= @product.brand.name %> a obtenu <%= @product.brand.labor_answers %> "OUI" à propos des conditions de travail</strong></p>
+            <h4>Voici les paramètres évalués :</h4>
             <ul>
-              <li>If the Brand is member of the Ethical Trading Initiative, the Fair Wear Foundation, the Labor Association and the Sustainable Apparel Coalition</li>
-              <li>If the Brand is signatory to the Bangladesh Agreement on Fire Safety and Security of Buildings</li>
-              <li>If the Brand discloses information to illustrate that they are taking steps to ensure that there is no forced labor or child labor in their supply chain. But also on the freedom of association of their workers and their working conditions.</li>
+              <li>Si la marque est membre de la Ethical Trading Initiative, de la Fair Wear Foundation, de la Labour Association et de la Sustainable Apparel Coalition</li>
+              <li>Si la marque est signataire de l'accord du Bangladesh sur la sécurité incendie et la sécurité des bâtiments</li>
+              <li>Si la marque divulgue des informations montrant qu'elle prend des mesures pour garantir qu'il n'y a pas de travail forcé ou de travail des enfants dans sa chaîne d'approvisionnement. Mais aussi sur la liberté d'association de leurs travailleurs et leurs conditions de travail.</li>
             </ul>
+            <h4>Pour en savoir plus ...</h4>
+            <p>Ethical Trading Initiative : ETI a été au Royaume-Uni par des entreprises, des ONG et des syndicats.</p>
+            <p>Son but principal est d’assurer des conditions de travail décentes pour les travailleurs de l’industrie manufacturière.</p>
+            <p>Source : <%= link_to "https://www.ethicaltrade.org/", :target => "_blank" %></p><br>
+            <p>Fair Wear Foundation : Cette fondation est une initiative multipartite européenne qui vise à améliorer les conditions de travail dans l'industrie du vêtement et du textile.</p>
+            <p>Source : <%= link_to "https://www.fairwear.org/", :target => "_blank" %></p><br>
+            <p>Sustainable Apparel Coalition : Il s'agit de la principale alliance de l'industrie du vêtement, de la chaussure et du textile pour une production durable.</p>
+            <p>Source : <%= link_to "https://apparelcoalition.org/", :target => "_blank" %></p>
           </div>
         </div>
       </div>
@@ -149,7 +158,7 @@
             <div class="icons">
               <%= inline_svg("transparency.svg", width: 32, class: "collapse-icon") %>
             </div>
-            Transparency
+            Transparence de la marque
           </div>
           <div class="d-flex align-items-center">
             <div class="mx-2 circle circle-<%= @product.brand.transparency_color %>"></div>
@@ -161,14 +170,14 @@
 
         <div id="collapseFour" class="collapse">
           <div class="collapse-body">
-            <p><strong><%= @product.brand.name %> got <%= @product.brand.transparency_answers %> YES about transparency </strong></p>
+            <p><strong><%= @product.brand.name %> a obtenu <%= @product.brand.transparency_answers %> "OUI" à propos de leur transparence</strong></p>
             <div class="details_transparency">
-              <h4>Monitored parameters:</h4>
+              <h4>Voici les paramètres évalués :</h4>
               <ul>
-                <li>If the Brand discloses the complete list of its suppliers</li>
-                <li>If the Brand takes steps to control the wages paid to the staff of its factories</li>
-                <li>If the Brand mentions child labor, forced labor, safety and working conditions on its website.</li>
-                <li>If the Brand publish its code of conduct for suppliers</li>
+                <li>Si la marque divulgue la liste complète de leurs fournisseurs</li>
+                <li>Si la marque prend des mesures pour contrôler les salaires versés au personnel de ses usines</li>
+                <li>Si la marque mentionne le travail des enfants, le travail forcé, la sécurité et les conditions de travail sur son site Web.</li>
+                <li>Si la marque publie son code de conduite pour les fournisseurs</li>
               </ul>
             </div>
           </div>
@@ -179,12 +188,12 @@
   <!-- Test stars reviews -->
 
   <div class="rating mt-4">
-    <h3>Customers reviews</h3>
+    <h3>Avis des consommateurs</h3>
     <div class="container">
-      <div id="reviews">
+      <div id="reviews" class="text-center">
         <%= link_to "", product_reviews_path(@product), class: "reviews_link" %>
         <% if @product.reviews.blank? %>
-        Be the first to leave a review for <%= @product.name %>
+        Soyez le premier à laisser un commentaire sur le produit <%= @product.name %>
         <% else %>
           <% @product.reviews.last(3).each do |review| %>
           <%= render 'reviews/show', review: review %>
@@ -193,16 +202,16 @@
       </div>
       <div class="text-center">
         <% if current_user.has_reviewed?(@product) %>
-          <%= link_to "see my review", review_path(current_user.review(@product)), class: "btn  btn-light p-2 mt-4"%>
+          <%= link_to "Voir mon commentaire", review_path(current_user.review(@product)), class: "btn  btn-light p-2 mt-4"%>
         <% else %>
-          <%= link_to "Add a review", new_product_review_path(@product), class: "btn  btn-primary p-1 mt-4"%>
+          <%= link_to "Ajouter un commentaire", new_product_review_path(@product), class: "btn  btn-primary p-1 mt-4"%>
         <% end %>
       </div>
     </div>
   </div>
 
   <div class="mt-4 equivalent_product">
-    <h4 class="text-center">Better alternatives products</h4>
+    <h4 class="text-center">Suggestion d'alternatives produits</h4>
     <div class="slider">
       <% @alternatives.each do |product| %>
         <%= link_to product_path(product), class: "favorite-card" do %>
